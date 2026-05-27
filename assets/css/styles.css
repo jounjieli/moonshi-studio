@@ -347,9 +347,48 @@ a {
   gap: 18px;
 }
 
+.booking-section {
+  margin-top: 40px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+  align-items: start;
+}
+
 .info-card,
 .offer-card {
   padding: 26px;
+}
+
+.booking-card {
+  gap: 18px;
+}
+
+.booking-card-featured {
+  background: linear-gradient(145deg, rgba(255, 250, 244, 0.92), rgba(238, 225, 209, 0.9));
+}
+
+.booking-template {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+}
+
+.booking-template p,
+.booking-note {
+  margin: 0;
+  color: var(--muted);
+}
+
+.booking-note + .booking-note {
+  margin-top: 10px;
 }
 
 .price-layout {
@@ -476,6 +515,7 @@ a {
 @media (max-width: 960px) {
   .hero-grid,
   .two-column,
+  .booking-grid,
   .price-layout,
   .footer-grid,
   .menu-grid,
