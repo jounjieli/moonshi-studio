@@ -86,7 +86,7 @@
           <article class="info-card booking-card booking-card-featured">
             <p class="offer-badge">初次預約</p>
             <h2>請直接複製以下格式填寫</h2>
-            <div class="booking-template">
+            <div class="booking-template" id="first-booking-template">
               <p>1. 姓名：</p>
               <p>2. 電話：</p>
               <p>3. 想預約日期 / 時段：</p>
@@ -100,20 +100,32 @@
             <p class="booking-note">
               我會盡快幫你安排，也會先評估膚況，為你安排適合的療程。
             </p>
-            <a class="button button-dark" data-line-link href="#">確認後前往 LINE 預約</a>
+            <div class="booking-actions">
+              <button class="button button-light" type="button" data-copy-target="first-booking-template">
+                複製初次預約格式
+              </button>
+              <a class="button button-dark" data-line-link href="#">確認後前往 LINE 預約</a>
+            </div>
+            <p class="copy-feedback" data-copy-feedback="first-booking-template" aria-live="polite"></p>
           </article>
 
           <article class="info-card booking-card">
             <p class="offer-badge">舊客預約</p>
             <h2>請直接複製以下格式填寫</h2>
-            <div class="booking-template">
+            <div class="booking-template" id="return-booking-template">
               <p>1. 姓名：</p>
               <p>2. 電話：</p>
               <p>3. 想預約日期 / 時段：</p>
               <p>4. 近期是否做過臉 / 醫美 / 使用酸類產品：</p>
             </div>
             <p class="booking-note">收到後我會盡快幫你安排預約。</p>
-            <a class="button button-light" data-line-link href="#">傳送舊客預約資料</a>
+            <div class="booking-actions">
+              <button class="button button-light" type="button" data-copy-target="return-booking-template">
+                複製舊客預約格式
+              </button>
+              <a class="button button-dark" data-line-link href="#">傳送舊客預約資料</a>
+            </div>
+            <p class="copy-feedback" data-copy-feedback="return-booking-template" aria-live="polite"></p>
           </article>
         </div>
       </div>
