@@ -22,7 +22,7 @@
     marks.forEach((mark) => {
       const img = document.createElement("img");
       img.className = "brand-logo";
-      img.src = "./assets/images/logo.jpg";
+      img.src = "./assets/images/logo.svg";
       img.alt = `${config.brandName || "Moonshi 沐煦"} Logo`;
       mark.replaceWith(img);
     });
@@ -30,7 +30,7 @@
     const heroMark = document.querySelector(".moon-emblem");
     if (heroMark) {
       const img = document.createElement("img");
-      img.src = "./assets/images/logo.jpg";
+      img.src = "./assets/images/logo.svg";
       img.alt = `${config.brandName || "Moonshi 沐煦"} Studio Logo`;
       heroMark.replaceWith(img);
     }

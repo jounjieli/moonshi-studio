@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="title desc">
+  <title id="title">Moonshi Studio Logo</title>
+  <desc id="desc">Moonshi studio round moon logo with botanical line art.</desc>
+  <defs>
+    <radialGradient id="moon" cx="45%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#fffdfb"/>
+      <stop offset="52%" stop-color="#f4eeee"/>
+      <stop offset="100%" stop-color="#e8e1dc"/>
+    </radialGradient>
+    <radialGradient id="mist" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="100%" stop-color="#c9bbb6" stop-opacity=".16"/>
+    </radialGradient>
+    <linearGradient id="paper" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#eee6cf"/>
+      <stop offset="100%" stop-color="#f8f3e9"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#5b5148" flood-opacity=".12"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#paper)"/>
+  <circle cx="250" cy="250" r="199" fill="url(#moon)" filter="url(#softShadow)"/>
+  <circle cx="250" cy="250" r="154" fill="none" stroke="#b7ada6" stroke-width="1.2" opacity=".62"/>
+  <circle cx="250" cy="250" r="183" fill="url(#mist)" opacity=".9"/>
+  <circle cx="112" cy="250" r="7" fill="#111"/>
+  <path d="M178 136l8 23 23 8-23 8-8 23-8-23-23-8 23-8z" fill="#111"/>
+  <g fill="none" stroke="#111" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M126 331c31-30 56-43 80-46" stroke-width="2"/>
+    <path d="M143 323c-8-20-8-39 0-57 9 15 10 31 4 48" stroke-width="1.4"/>
+    <path d="M166 309c-10-10-15-23-15-39 13 8 20 20 21 35" stroke-width="1.4"/>
+    <path d="M187 296c-5-13-4-25 3-37 8 11 10 22 4 35" stroke-width="1.4"/>
+    <path d="M144 323c-15-2-28-10-39-23 17-2 30 4 39 18" stroke-width="1.4"/>
+    <path d="M166 309c-15 1-28-4-41-16 15-4 28 0 39 11" stroke-width="1.4"/>
+    <path d="M187 296c-13 5-26 4-39-4 13-7 26-7 38 0" stroke-width="1.4"/>
+    <path d="M374 164c-28 30-45 67-51 111" stroke-width="2"/>
+    <path d="M360 189c-2-19 3-36 16-51 6 18 2 35-10 50" stroke-width="1.4"/>
+    <path d="M343 223c-7-16-6-32 2-48 11 13 13 28 4 45" stroke-width="1.4"/>
+    <path d="M329 260c-9-13-12-27-8-43 12 10 17 23 12 39" stroke-width="1.4"/>
+    <path d="M360 189c18-7 35-6 51 4-14 12-31 14-49 3" stroke-width="1.4"/>
+    <path d="M343 223c17-9 34-10 51-4-12 13-28 17-47 10" stroke-width="1.4"/>
+    <path d="M329 260c15-9 30-12 45-8-9 13-23 18-41 14" stroke-width="1.4"/>
+  </g>
+  <text x="250" y="265" text-anchor="middle" fill="#111" font-family="Brush Script MT, Segoe Script, cursive" font-size="74" letter-spacing="1">Moonshi</text>
+  <text x="250" y="325" text-anchor="middle" fill="#111" font-family="Montserrat, Arial, sans-serif" font-size="22" letter-spacing="8">STUDIO</text>
+</svg>
