@@ -77,6 +77,9 @@ a {
   width: 52px;
   height: 52px;
   border-radius: 50%;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
@@ -232,6 +235,9 @@ a {
 .moon-panel img {
   width: min(100%, 360px);
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
 
 .moon-emblem {

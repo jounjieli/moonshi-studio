@@ -17,6 +17,25 @@
     });
   }
 
+  function applyBrandLogos() {
+    const marks = document.querySelectorAll(".brand-mark");
+    marks.forEach((mark) => {
+      const img = document.createElement("img");
+      img.className = "brand-logo";
+      img.src = "./assets/images/logo.jpg";
+      img.alt = `${config.brandName || "Moonshi 沐煦"} Logo`;
+      mark.replaceWith(img);
+    });
+
+    const heroMark = document.querySelector(".moon-emblem");
+    if (heroMark) {
+      const img = document.createElement("img");
+      img.src = "./assets/images/logo.jpg";
+      img.alt = `${config.brandName || "Moonshi 沐煦"} Studio Logo`;
+      heroMark.replaceWith(img);
+    }
+  }
+
   async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
@@ -51,6 +70,7 @@
     }, 2500);
   }
 
+  applyBrandLogos();
   applyLinks("[data-instagram-link]", config.instagramUrl);
   applyLinks("[data-line-link]", config.lineUrl);
   applyLinks("[data-map-link]", config.mapUrl);
