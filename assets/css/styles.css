@@ -128,8 +128,9 @@ a {
   align-items: center;
   flex: 0 0 auto;
   gap: 14px;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 .brand-logo,
@@ -139,9 +140,9 @@ a {
   height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-outline);
-  box-shadow: 0 12px 30px rgba(62, 42, 32, 0.1);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .brand-mark {
@@ -261,15 +262,19 @@ a {
 .two-column h2,
 .cta-panel h2 {
   margin: 0;
-  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
-  font-weight: 900;
-  line-height: 1.08;
-  letter-spacing: -0.045em;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.024em;
 }
 
 .hero-copy h1 {
-  max-width: 12ch;
-  font-size: clamp(2.55rem, 5.8vw, 5.4rem);
+  max-width: 11em;
+  font-size: clamp(2.45rem, 4.15vw, 4rem);
+}
+
+.hero-copy h1 span {
+  display: block;
 }
 
 .page-head h1,
@@ -344,17 +349,17 @@ a {
 .moon-panel {
   position: relative;
   display: grid;
-  min-height: 500px;
+  min-height: 470px;
   place-items: center;
   padding: clamp(34px, 5vw, 62px);
   overflow: hidden;
   border-radius: calc(var(--radius-xl) - 8px);
   background:
-    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.95) 0 18%, rgba(247, 237, 227, 0.75) 19% 34%, transparent 35%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(236, 221, 206, 0.86));
+    radial-gradient(circle at 72% 20%, rgba(255, 255, 255, 0.86), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(236, 221, 206, 0.82));
 }
 
-.moon-panel::after {
+.moon-panel::before {
   content: "";
   position: absolute;
   inset: 18px;
@@ -363,32 +368,42 @@ a {
   pointer-events: none;
 }
 
-.moon-panel img {
-  width: min(78%, 330px);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid var(--color-outline);
-  box-shadow: var(--shadow-lift);
+.hero-logo-lockup {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  width: min(100%, 360px);
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(63, 43, 34, 0.1);
+  border-radius: 32px;
+  background: rgba(255, 252, 246, 0.58);
+  box-shadow: 0 18px 50px rgba(62, 42, 32, 0.07);
+  text-align: center;
 }
 
-.hero-note {
-  position: absolute;
-  right: 26px;
-  bottom: 24px;
-  left: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  color: var(--color-muted);
-  font-size: 0.86rem;
+.hero-logo-lockup img {
+  width: min(100%, 220px);
+  border-radius: 50%;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.hero-logo-title {
+  margin: 0;
+  font-size: 1.28rem;
+  font-weight: 850;
   letter-spacing: 0.04em;
 }
 
-.hero-note strong {
-  color: var(--color-primary);
+.hero-logo-subtitle {
+  margin: 6px 0 0;
+  color: var(--color-muted);
   font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -747,11 +762,11 @@ a {
   }
 
   .hero-copy h1 {
-    max-width: 14ch;
+    max-width: 11em;
   }
 
   .moon-panel {
-    min-height: 390px;
+    min-height: 370px;
   }
 
   .calm-panel,
@@ -809,8 +824,8 @@ a {
   }
 
   .hero-copy h1 {
-    max-width: none;
-    font-size: clamp(2.12rem, 11vw, 3.35rem);
+    max-width: 11em;
+    font-size: clamp(2rem, 9.2vw, 2.8rem);
   }
 
   .hero-actions .button,
@@ -837,15 +852,13 @@ a {
     padding: 30px;
   }
 
-  .moon-panel img {
-    width: min(72%, 240px);
+  .hero-logo-lockup {
+    width: min(100%, 280px);
+    padding: 26px;
   }
 
-  .hero-note {
-    position: static;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 24px;
+  .hero-logo-lockup img {
+    width: min(100%, 170px);
   }
 
   .menu-card,
