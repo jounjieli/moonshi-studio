@@ -1,7 +1,10 @@
 .DS_Store
 Thumbs.db
 
-# Local reference files not needed for deployment
+# Local content library and source media are kept out of GitHub Pages deploys.
+content/
+
+# Legacy local reference files that may appear again in the project root.
 Moonshi_沐煦_IG品牌資訊檔.md
 工作室_IG頁面.png
 工作室須知.png

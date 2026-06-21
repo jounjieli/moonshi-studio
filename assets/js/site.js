@@ -24,6 +24,9 @@
       img.className = "brand-logo";
       img.src = "./assets/images/logo.svg";
       img.alt = `${config.brandName || "Moonshi 沐煦"} Logo`;
+      img.width = 52;
+      img.height = 52;
+      img.decoding = "async";
       mark.replaceWith(img);
     });
 
@@ -32,6 +35,8 @@
       const img = document.createElement("img");
       img.src = "./assets/images/logo.svg";
       img.alt = `${config.brandName || "Moonshi 沐煦"} Studio Logo`;
+      img.loading = "eager";
+      img.decoding = "async";
       heroMark.replaceWith(img);
     }
   }

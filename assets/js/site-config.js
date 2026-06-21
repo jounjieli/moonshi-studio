@@ -2,6 +2,6 @@ window.MOONSHI_CONFIG = {
   brandName: "Moonshi 沐煦",
   instagramUrl: "https://www.instagram.com/moonshi_studio/?hl=zh-tw",
   lineUrl: "https://line.me/R/ti/p/@300shhin",
-  addressArea: "台中，完成預約後提供詳細地址與到店說明。",
-  mapUrl: "https://maps.app.goo.gl/b6Y2gaBuo3NjVb1F7",
+  addressArea: "404 台中市北區淡溝里博館路52號",
+  mapUrl: "https://maps.app.goo.gl/88yNAWdGUrKHy8dH8",
 };

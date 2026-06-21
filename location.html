@@ -8,28 +8,29 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-page="location">
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="./index.html">
           <span class="brand-mark" aria-hidden="true">M</span>
           <span>Moonshi 沐煦</span>
         </a>
-        <nav class="nav-links">
+        <nav class="nav-links" aria-label="主要導覽">
           <a href="./index.html">首頁</a>
           <a href="./price.html">價目表</a>
           <a href="./notice.html">工作室須知</a>
-          <a href="./offers.html">優惠</a>
+          <a href="./offers.html">優惠活動</a>
           <a class="button button-dark" href="./notice.html#booking-form">立即預約</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
+    <main class="section" id="main-content">
       <div class="container page-head">
         <p class="eyebrow">Location</p>
         <h1>工作室位置</h1>
         <p class="lead">
-          目前頁面先以預約制工作室的資訊方式呈現。若你之後要公開完整地址或 Google Maps，只需要改設定檔，不必重做整站。
+          工作室位於台中市北區，完成預約後可依照下方位置指引與 Google Maps 導航前往。
         </p>
       </div>
 
@@ -37,7 +38,7 @@
         <section class="stack-list">
           <article class="info-card">
             <h2>所在地區</h2>
-            <p data-address-area>台中，完成預約後提供詳細地址與到店說明。</p>
+            <p data-address-area>404 台中市北區淡溝里博館路52號</p>
           </article>
           <article class="info-card">
             <h2>交通提醒</h2>
@@ -62,11 +63,15 @@
           <div>
             <p class="eyebrow">Studio Map</p>
             <h2>位置指引圖</h2>
-            <p>地圖原檔已更新為目前版本。完成預約後可依照工作室提供的到店說明，再搭配 Google Maps 確認路線。</p>
+            <p>位置指引圖已更新為目前版本。完成預約後可依照圖中位置，再搭配 Google Maps 確認路線。</p>
           </div>
           <img
             class="location-map-image"
-            src="./assets/images/location-map.jpg"
+            src="./assets/images/location-map.webp"
+            width="1122"
+            height="1402"
+            loading="lazy"
+            decoding="async"
             alt="Moonshi 沐煦工作室位置指引圖"
           />
           <a class="button button-dark" data-map-link href="#">開啟 Google Maps</a>

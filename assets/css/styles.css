@@ -43,6 +43,28 @@ a {
   text-decoration: none;
 }
 
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--text);
+  color: #fffaf5;
+  transform: translateY(-160%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(134, 103, 77, 0.55);
+  outline-offset: 4px;
+}
+
 .container {
   width: min(calc(100% - 32px), var(--container));
   margin: 0 auto;
@@ -473,9 +495,26 @@ a {
   color: var(--muted);
 }
 
-.image-card img {
+.image-card img,
+.notice-sheet-image {
   border-radius: 20px;
   margin-bottom: 16px;
+}
+
+.price-sheet-image,
+.notice-sheet-image {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+}
+
+.notice-visual-card {
+  margin-top: 22px;
+}
+
+.notice-visual-card h2 {
+  margin: 0 0 8px;
 }
 
 .price-poster {

@@ -8,23 +8,24 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body data-page="notice">
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="./index.html">
           <span class="brand-mark" aria-hidden="true">M</span>
           <span>Moonshi 沐煦</span>
         </a>
-        <nav class="nav-links">
+        <nav class="nav-links" aria-label="主要導覽">
           <a href="./index.html">首頁</a>
           <a href="./price.html">價目表</a>
-          <a href="./offers.html">優惠</a>
-          <a href="./location.html">位置</a>
+          <a href="./offers.html">優惠活動</a>
+          <a href="./location.html">工作室位置</a>
           <a class="button button-dark" href="#booking-form">立即預約</a>
         </nav>
       </div>
     </header>
 
-    <main class="section">
+    <main class="section" id="main-content">
       <div class="container page-head">
         <p class="eyebrow">Studio Notice</p>
         <h1>工作室須知</h1>
@@ -38,9 +39,9 @@
           <article class="info-card">
             <h2>預約方式</h2>
             <ul class="bullet-list">
-              <li>採預約制，請提前聯繫安排時段。</li>
+              <li>每個月 20 號中午 13:00 開放次月預約。</li>
               <li>初次預約建議先提供素顏近照與主要困擾。</li>
-              <li>完成預約後再提供進一步位置與到店資訊。</li>
+              <li>新客首次預約需支付定金，可折抵當天消費。</li>
             </ul>
           </article>
           <article class="info-card">
@@ -48,15 +49,17 @@
             <ul class="bullet-list">
               <li>若近期有醫美、煥膚、使用高濃度酸類或皮膚過敏，請主動告知。</li>
               <li>每個人的課程安排會依膚況調整，不是固定套版流程。</li>
-              <li>如需更改時間，請提前通知。</li>
+              <li>目前暫時不接同行及完美主義者，工作室內無法攜伴。</li>
             </ul>
           </article>
           <article class="info-card">
-            <h2>施作後保養</h2>
+            <h2>取消與異動規則</h2>
             <ul class="bullet-list">
-              <li>請加強保濕與防曬。</li>
-              <li>避免自行摳擠或使用刺激性過高的產品。</li>
-              <li>若有任何不適或保養疑問，可回 LINE 詢問。</li>
+              <li>三天內取消預約，定金恕無法退還，特定原因除外。</li>
+              <li>更改預約時段者，將收取定金 $500。</li>
+              <li>所有項目預約僅保留 15 分鐘。</li>
+              <li>若當天逾時超過 10 分鐘，當次則無法使用優惠券。</li>
+              <li>抵達一樓後請私訊告知已抵達。</li>
             </ul>
           </article>
         </section>
@@ -64,9 +67,9 @@
         <aside class="info-card">
           <h2>預約前可先準備</h2>
           <ol class="number-list">
-            <li>素顏無濾鏡近照 3 張（正臉、左臉、右臉）</li>
+            <li>素顏近照 1 - 2 張</li>
             <li>目前最在意的膚況問題</li>
-            <li>平常使用的保養品或治療習慣</li>
+            <li>近期是否有醫美或使用酸類產品</li>
             <li>想預約的日期與時段</li>
           </ol>
           <a class="button button-dark" href="#booking-form">查看預約表單</a>
@@ -92,10 +95,10 @@
               <p>3. 想預約日期 / 時段：</p>
               <p>4. 目前膚況困擾：</p>
               <p>5. 近期是否有做醫美或使用酸類產品：</p>
-              <p>6. 提供素顏無濾鏡近照 3 張（正臉、左臉、右臉）：</p>
+              <p>6. 素顏近照 1 - 2 張：</p>
             </div>
             <p class="booking-note">
-              回覆確認後會提供匯款帳號，需先匯款 $500 定金。完成匯款後請提供後五碼，即完成預約。
+              回覆確認後會提供匯款帳號，需先匯款 $500 定金。定金可折抵當天消費，完成匯款後請提供後五碼，即完成預約。
             </p>
             <p class="booking-note">
               我會盡快幫你安排，也會先評估膚況，為你安排適合的療程。
@@ -128,6 +131,22 @@
             <p class="copy-feedback" data-copy-feedback="return-booking-template" aria-live="polite"></p>
           </article>
         </div>
+        <article class="info-card notice-visual-card">
+          <div>
+            <p class="eyebrow">Studio Notice</p>
+            <h2>新版預約須知</h2>
+            <p>下方圖片為目前 LINE 端使用的預約須知版本，文字規則已同步整理到本頁。</p>
+          </div>
+          <img
+            class="notice-sheet-image"
+            src="./assets/images/booking-notice.webp"
+            width="1587"
+            height="2245"
+            loading="lazy"
+            decoding="async"
+            alt="Moonshi 沐煦預約須知"
+          />
+        </article>
       </div>
     </main>
 

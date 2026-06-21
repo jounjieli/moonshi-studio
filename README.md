@@ -1,57 +1,57 @@
 # Moonshi Studio Website
 
-這是一個可直接部署到 GitHub Pages 的靜態網站，對應 Moonshi 沐煦的 LINE 圖文選單與品牌資訊頁。
+Moonshi 沐煦的靜態網站與本地自媒體素材資料夾。
 
-## 站點結構
+網站部署在 GitHub Pages，根目錄保留可直接部署的 HTML 檔案；自媒體素材與參考圖統一放在 `content/`，不會跟網站部署檔混在一起。
+
+## Website Files
 
 - `index.html`：首頁
 - `price.html`：價目表
-- `notice.html`：工作室須知
+- `notice.html`：工作室須知與預約表單
 - `offers.html`：優惠活動
 - `location.html`：工作室位置
-- `assets/css/styles.css`：全站樣式
-- `assets/js/site-config.js`：可集中修改的品牌連結設定
+- `assets/css/styles.css`：網站樣式
+- `assets/js/site.js`：網站互動功能
+- `assets/js/site-config.js`：IG、LINE、地址與地圖連結設定
+- `assets/images/`：網站正式使用的圖片資產
 
-## LINE 圖文選單對應
+## Content Library
 
-- A：`/price.html`
-- B：Instagram
-- C：`/notice.html`
-- D：`/offers.html`
-- E：LINE 預約
-- F：`/location.html`
+`content/` 是本地內容素材庫，不參與 GitHub Pages 部署。
 
-## 上線前要確認
+- `content/brand/`：品牌資料與定位文件
+- `content/instagram/`：IG 貼文素材，依日期整理
+- `content/line/`：LINE 官方帳號、圖文選單、預約須知素材
+- `content/references/`：Logo、IG 頁面截圖與其他參考圖
+- `content/services/`：服務項目與價目表相關素材
 
-請先打開 `assets/js/site-config.js`，確認以下欄位：
+## LINE Rich Menu Links
+
+- A 價目表：`/price.html`
+- B Instagram：`https://www.instagram.com/moonshi_studio/?hl=zh-tw`
+- C 工作室須知：`/notice.html`
+- D 優惠活動：`/offers.html`
+- E 立即預約：`/notice.html#booking-form`
+- F 工作室位置：`/location.html`
+
+## Update Config
+
+常用連結集中在 `assets/js/site-config.js`：
 
 - `instagramUrl`
 - `lineUrl`
 - `addressArea`
 - `mapUrl`
 
-目前已先填入：
+## GitHub Pages
 
-- Instagram：`https://www.instagram.com/moonshi_studio/?hl=zh-tw`
-- LINE：`https://line.me/R/ti/p/@300shhin`
+GitHub Pages 設定：
 
-如果你的 LINE 官方帳號實際外部連結不是這個，請改成正確網址。
+- Source：`Deploy from a branch`
+- Branch：`main`
+- Folder：`/ (root)`
 
-## GitHub Pages 部署
-
-1. 進入 GitHub repo 的 `Settings > Pages`
-2. `Build and deployment` 選 `Deploy from a branch`
-3. Branch 選 `main`，資料夾選 `/ (root)`
-4. 儲存後等待部署完成
-
-部署完成後網址通常會是：
+正式網址：
 
 `https://jounjieli.github.io/moonshi-studio/`
-
-## 後續維護
-
-- 改價目：更新 `price.html`
-- 改優惠：更新 `offers.html`
-- 改須知：更新 `notice.html`
-- 改位置或 Google Maps：更新 `assets/js/site-config.js`
-- 改 LINE 圖文選單按鈕連結：把頁面網址貼進 LINE 官方帳號後台
