@@ -43,6 +43,18 @@ a {
   text-decoration: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
 .skip-link {
   position: absolute;
   top: 12px;
@@ -156,7 +168,7 @@ a {
 }
 
 .hero {
-  padding: 68px 0 40px;
+  padding: clamp(56px, 7vw, 88px) 0 56px;
 }
 
 .hero-grid,
@@ -183,8 +195,8 @@ a {
 }
 
 .hero-copy h1 {
-  font-size: clamp(2.4rem, 5vw, 4.9rem);
-  max-width: 11ch;
+  font-size: clamp(2.35rem, 4.4vw, 4.35rem);
+  max-width: 12ch;
 }
 
 .lead {
@@ -289,7 +301,7 @@ a {
 }
 
 .section {
-  padding: 32px 0 56px;
+  padding: 44px 0 64px;
 }
 
 .section-soft {
@@ -459,6 +471,43 @@ a {
 .price-layout {
   grid-template-columns: 1.2fr 0.8fr;
   align-items: start;
+}
+
+.asset-page-layout {
+  display: grid;
+  gap: 24px;
+}
+
+.official-sheet-card {
+  display: grid;
+  gap: 22px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.sheet-intro {
+  display: grid;
+  gap: 8px;
+}
+
+.sheet-intro h2,
+.sheet-intro p {
+  margin: 0;
+}
+
+.sheet-intro h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
+.sheet-intro p {
+  color: var(--muted);
+}
+
+.sheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .price-list {
