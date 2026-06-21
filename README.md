@@ -33,7 +33,7 @@ Moonshi 沐煦的靜態網站與本地自媒體素材資料夾。
 - C 工作室須知：`/notice.html`
 - D 優惠活動：`/offers.html`
 - E 立即預約：`/notice.html#booking-form`
-- F 工作室位置：`/location.html`
+- F Google Maps：`https://maps.app.goo.gl/88yNAWdGUrKHy8dH8`
 
 ## Update Config
 

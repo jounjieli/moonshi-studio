@@ -87,7 +87,7 @@
 
   const mapHelper = document.querySelector("[data-map-helper]");
   if (mapHelper && config.mapUrl) {
-    mapHelper.textContent = "已設定地圖連結，按下按鈕可直接開啟導航。";
+    mapHelper.textContent = "建議出發前再次確認路線與交通時間。";
   }
 
   const copyButtons = document.querySelectorAll("[data-copy-target]");

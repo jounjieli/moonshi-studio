@@ -6,7 +6,7 @@
     <title>Moonshi 沐煦 | 問題肌皮膚管理工作室</title>
     <meta
       name="description"
-      content="Moonshi 沐煦專注問題肌、痘痘肌、粉刺與一對一皮膚管理，提供溫和調理、客製化保養建議與療癒照護體驗。"
+      content="Moonshi 沐煦專注問題肌、痘痘肌、粉刺、毛孔與膚況不穩定的一對一皮膚管理，提供溫和調理與客製化保養建議。"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
@@ -32,91 +32,140 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Problem Skin Studio</p>
-            <h1>給肌膚一個被理解以及好好照顧的地方。</h1>
+            <p class="eyebrow">Problem Skin Management</p>
+            <h1>把反覆不穩定的膚況，慢慢整理回可被照顧的狀態。</h1>
             <p class="lead">
               Moonshi 沐煦由 Eason 經營，專注痘痘肌、粉刺、毛孔、出油與膚況不穩定的一對一皮膚管理。
-              這裡不只是做臉，而是陪你把膚況慢慢整理回來。
+              這裡不只是做臉，而是陪你看懂膚況、調整保養節奏，讓每一次照護都有方向。
             </p>
             <div class="hero-actions">
-              <a class="button button-dark" href="./notice.html#booking-form">查看預約方式</a>
-              <a class="button button-light" href="./price.html">查看價目表</a>
+              <a class="button button-dark" href="./notice.html#booking-form">開始預約</a>
+              <a class="button button-light" href="./price.html">查看服務價格</a>
             </div>
-            <ul class="hero-points">
-              <li>一對一皮膚管理</li>
-              <li>客製化保養建議</li>
+            <ul class="hero-points" aria-label="Moonshi 沐煦服務特色">
+              <li>一對一膚況評估</li>
               <li>溫和清潔與調理</li>
+              <li>客製化保養建議</li>
             </ul>
           </div>
-          <div class="hero-card">
+          <aside class="hero-card" aria-label="Moonshi 沐煦品牌視覺">
             <div class="moon-panel">
               <img src="./assets/images/logo.svg" alt="Moonshi 沐煦 Studio Logo" />
+              <div class="hero-note">
+                <span>Moonshi Studio</span>
+                <strong>quiet care for problem skin</strong>
+              </div>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section class="section">
-        <div class="container">
+      <section class="section section-guide" aria-labelledby="guide-title">
+        <div class="container section-grid">
           <div class="section-heading">
-            <p class="eyebrow">LINE 圖文選單對應</p>
-            <h2>你的 6 個按鈕，現在都能接到正式頁面。</h2>
+            <p class="eyebrow">Before Booking</p>
+            <h2 id="guide-title">開始前，你可以先確認這些資訊。</h2>
+            <p class="section-lead">
+              依照目前最需要的資訊選擇入口。若已準備預約，建議先看工作室須知，再複製預約表單回到 LINE 傳送。
+            </p>
           </div>
-          <div class="menu-grid">
+          <div class="guide-grid">
             <a class="menu-card" href="./price.html">
               <span class="menu-index">A</span>
               <h3>價目表</h3>
-              <p>服務項目、體驗價與客製管理說明。</p>
+              <p>查看目前官方服務項目與體驗價格。</p>
             </a>
             <a class="menu-card" data-instagram-link href="#">
               <span class="menu-index">B</span>
               <h3>Instagram</h3>
-              <p>查看最新保養知識、案例與工作室內容。</p>
+              <p>了解保養知識、案例分享與工作室日常。</p>
             </a>
             <a class="menu-card" href="./notice.html">
               <span class="menu-index">C</span>
               <h3>工作室須知</h3>
-              <p>預約前注意事項、施作前提醒與保養叮嚀。</p>
+              <p>確認預約規則、施作前提醒與保養叮嚀。</p>
             </a>
             <a class="menu-card" href="./offers.html">
               <span class="menu-index">D</span>
               <h3>優惠活動</h3>
-              <p>新客資訊、期間限定內容與活動更新。</p>
+              <p>查看目前活動、新客建議與 LINE 公告提醒。</p>
             </a>
             <a class="menu-card" href="./notice.html#booking-form">
               <span class="menu-index">E</span>
               <h3>立即預約</h3>
-              <p>先查看注意事項與預約表單，再前往 LINE 傳送資料。</p>
+              <p>複製預約模板，填寫後透過官方 LINE 傳送。</p>
             </a>
-            <a class="menu-card" href="./location.html">
+            <a class="menu-card" data-map-link href="#">
               <span class="menu-index">F</span>
-              <h3>工作室位置</h3>
-              <p>所在地區、交通說明與導航入口。</p>
+              <h3>Google Maps</h3>
+              <p>直接開啟地圖導航，前往工作室位置。</p>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="section section-soft">
-        <div class="container two-column">
+      <section class="section section-soft" aria-labelledby="fit-title">
+        <div class="container two-column align-start">
           <div>
-            <p class="eyebrow">Brand Focus</p>
-            <h2>不是把保養做得更複雜，而是把膚況整理得更清楚。</h2>
+            <p class="eyebrow">Studio Focus</p>
+            <h2 id="fit-title">不是把保養做得更複雜，而是把膚況整理得更清楚。</h2>
           </div>
           <div class="stack-list">
             <article class="info-card">
-              <h3>適合誰</h3>
-              <p>痘痘肌、粉刺堆積、毛孔明顯、容易出油、膚況反覆不穩定者。</p>
+              <h3>適合的膚況</h3>
+              <p>痘痘肌、粉刺堆積、毛孔明顯、容易出油、膚況反覆不穩定，或不知道目前保養該怎麼調整。</p>
             </article>
             <article class="info-card">
-              <h3>這裡提供</h3>
-              <p>一對一評估、溫和調理、客製化建議，以及放鬆療癒的照護時間。</p>
+              <h3>照護方式</h3>
+              <p>先理解膚況與生活習慣，再安排適合的清潔、調理與修護節奏，避免把保養堆得過度複雜。</p>
             </article>
             <article class="info-card">
-              <h3>預約方式</h3>
-              <p>初次預約請先閱讀工作室須知，再依網站表單格式透過 LINE 傳送資料。</p>
+              <h3>預約前準備</h3>
+              <p>初次預約可先準備素顏近照與目前最在意的膚況問題，讓評估更精準。</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="process-title">
+        <div class="container process-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Booking Flow</p>
+            <h2 id="process-title">預約流程維持簡單，但資訊要先確認清楚。</h2>
+          </div>
+          <ol class="process-list">
+            <li>
+              <span>01</span>
+              <strong>查看價目表</strong>
+              <p>先了解目前服務與體驗價格。</p>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>閱讀工作室須知</strong>
+              <p>確認預約、定金、異動與施作前提醒。</p>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>複製預約模板</strong>
+              <p>依照初次或舊客格式填寫資料。</p>
+            </li>
+            <li>
+              <span>04</span>
+              <strong>回到 LINE 傳送</strong>
+              <p>我會依照膚況與時段盡快幫你安排。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-cta">
+        <div class="container cta-panel">
+          <div>
+            <p class="eyebrow">Reservation</p>
+            <h2>若你不確定目前膚況是否適合施作，可以先傳照片到 LINE 諮詢。</h2>
+            <p>預約前先確認膚況，比直接選課程更重要。</p>
+          </div>
+          <a class="button button-dark" href="./notice.html#booking-form">查看預約表單</a>
         </div>
       </section>
     </main>
