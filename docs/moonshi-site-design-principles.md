@@ -25,6 +25,7 @@ Moonshi 網站的產品任務是「降低第一次預約前的不確定感」。
 
 - 每頁只允許一個主訊息與一個主要 CTA。
 - 首頁負責建立信任與導覽，不說後台語、不說工程語、不說「按鈕已接好」。
+- 首頁不使用「流程教學」或「溝通訊息」式區塊；預約步驟與可複製文字只放在 `notice.html#booking-form`。
 - 價目表、工作室須知、位置圖等官方圖片是前台可見 source of truth。
 - 同一份正式資訊不得同時出現圖片版、HTML 卡片版、文案版，避免不一致與測試站感。
 - LINE 圖文選單連結是外部契約：A `/price.html`、B Instagram、C `/notice.html`、D `/offers.html`、E `/notice.html#booking-form`、F Google Maps。
@@ -52,6 +53,7 @@ CSS token 應集中在 `assets/css/styles.css` 的 `:root`：
 - Radius：大容器 36px、中容器 28px、按鈕 999px。
 - Spacing：區塊間距要明確，避免所有資訊擠成後台清單。
 - Motion：180ms 至 240ms，低幅度、可預期。
+- Logo：網站正式 Logo 來源為 `assets/images/logo-reference.png`，由 `content/references/logo-reference.png` 複製而來；此檔為透明背景，禁止再加圓框、陰影、外層圖章或卡片中卡片。
 
 禁止：
 
@@ -143,5 +145,7 @@ Moonshi 語氣：溫柔、清楚、低壓、不誇大。
 - 「已新增連結」
 - 「更新方式」
 - 「目前可用文案建議」
+- 「預約流程維持簡單」
+- 「回到 LINE 傳送」
 
 這些都是後台語，不能出現在正式網站前台。
