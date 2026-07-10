@@ -3,12 +3,13 @@
   let copyFeedbackTimer = null;
 
   function applyLinks(selector, url) {
-    const nodes = document.querySelectorAll(selector);
-    nodes.forEach((node) => {
+    document.querySelectorAll(selector).forEach((node) => {
       if (!url) {
         node.classList.add("is-disabled");
+        node.setAttribute("aria-disabled", "true");
         return;
       }
+
       node.href = url;
       if (/^https?:\/\//.test(url)) {
         node.target = "_blank";
@@ -17,10 +18,52 @@
     });
   }
 
+  function setupNavigation() {
+    const toggle = document.querySelector(".nav-toggle");
+    const navigation = document.querySelector(".nav-links");
+    if (!toggle || !navigation) {
+      return;
+    }
+
+    function setOpen(open) {
+      const iconPath = toggle.querySelector("path");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "關閉導覽選單" : "開啟導覽選單");
+      navigation.classList.toggle("is-open", open);
+      document.body.classList.toggle("nav-open", open);
+      if (iconPath) {
+        iconPath.setAttribute("d", open ? "M18 6 6 18M6 6l12 12" : "M4 7h16M4 12h16M4 17h16");
+      }
+    }
+
+    toggle.addEventListener("click", () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        setOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 820) {
+        setOpen(false);
+      }
+    });
+  }
+
   async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
-      return true;
+      return;
     }
 
     const textarea = document.createElement("textarea");
@@ -33,7 +76,6 @@
 
     try {
       document.execCommand("copy");
-      return true;
     } finally {
       textarea.remove();
     }
@@ -44,11 +86,31 @@
     if (!feedback) {
       return;
     }
+
     feedback.textContent = message;
     window.clearTimeout(copyFeedbackTimer);
     copyFeedbackTimer = window.setTimeout(() => {
       feedback.textContent = "";
-    }, 2500);
+    }, 5000);
+  }
+
+  function setupCopyButtons() {
+    document.querySelectorAll("[data-copy-target]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const targetId = button.getAttribute("data-copy-target");
+        const target = targetId ? document.getElementById(targetId) : null;
+        if (!target) {
+          return;
+        }
+
+        try {
+          await copyText(target.innerText.trim());
+          setCopyFeedback(targetId, "預約格式已複製，可前往 LINE 填寫。");
+        } catch (error) {
+          setCopyFeedback(targetId, "無法自動複製，請手動選取文字。");
+        }
+      });
+    });
   }
 
   applyLinks("[data-instagram-link]", config.instagramUrl);
@@ -65,22 +127,6 @@
     mapHelper.textContent = "建議出發前再次確認路線與交通時間。";
   }
 
-  const copyButtons = document.querySelectorAll("[data-copy-target]");
-  copyButtons.forEach((button) => {
-    button.addEventListener("click", async () => {
-      const targetId = button.getAttribute("data-copy-target");
-      const target = targetId ? document.getElementById(targetId) : null;
-      if (!target) {
-        return;
-      }
-
-      try {
-        const text = target.innerText.trim();
-        await copyText(text);
-        setCopyFeedback(targetId, "已複製，可直接貼到 LINE 填寫。");
-      } catch (error) {
-        setCopyFeedback(targetId, "複製失敗，請手動複製表單內容。");
-      }
-    });
-  });
+  setupNavigation();
+  setupCopyButtons();
 })();

@@ -3,57 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>工作室須知 | Moonshi 沐煦</title>
-    <meta name="description" content="Moonshi 沐煦工作室須知與預約前注意事項。" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>預約須知 | Moonshi 沐煦</title>
+    <meta name="description" content="Moonshi 沐煦官方預約須知、初次預約與舊客預約格式。" />
+    <link rel="icon" href="./assets/images/logo-reference.png" type="image/png" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260710-3" />
   </head>
   <body data-page="notice">
     <a class="skip-link" href="#main-content">跳到主要內容</a>
+
     <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./assets/images/logo-reference.png" alt="Moonshi 沐煦 Logo" />
-          <span>Moonshi 沐煦</span>
+      <div class="container site-nav">
+        <a class="brand-wordmark" href="./index.html" aria-label="Moonshi 沐煦首頁">
+          <span>Moonshi</span>
+          <small>沐煦</small>
         </a>
-        <nav class="nav-links" aria-label="主要導覽">
-          <a href="./index.html">首頁</a>
-          <a href="./price.html">價目表</a>
-          <a href="./offers.html">優惠活動</a>
-          <a href="./location.html">工作室位置</a>
-          <a class="button button-dark" href="#booking-form">立即預約</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="開啟導覽選單">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+        <nav class="nav-links" id="primary-navigation" aria-label="主要導覽">
+          <a href="./price.html">服務價格</a>
+          <a aria-current="page" href="./notice.html">預約須知</a>
+          <a href="./offers.html">目前活動</a>
+          <a href="./location.html">到店資訊</a>
+          <a class="nav-action" href="#booking-form">立即預約</a>
         </nav>
       </div>
     </header>
 
-    <main class="section" id="main-content">
-      <div class="container page-head">
-        <p class="eyebrow">Studio Notice</p>
-        <h1>工作室須知</h1>
-        <p class="lead">
-          下方為目前官方預約須知圖。確認內容後，再往下複製預約模板並透過 LINE 傳送。
-        </p>
-      </div>
+    <main id="main-content">
+      <header class="page-hero">
+        <div class="container page-hero-layout">
+          <div>
+            <p class="section-label">預約前閱讀</p>
+            <h1>預約須知</h1>
+          </div>
+          <p>請先閱讀完整須知，再依照初次或舊客格式填寫預約資料。正式預約與時段確認皆透過官方 LINE 完成。</p>
+        </div>
+      </header>
 
-      <div class="container asset-page-layout">
-        <section class="info-card official-sheet-card">
-          <div class="sheet-intro">
-            <p class="eyebrow">Official Notice</p>
-            <h2>官方預約須知圖</h2>
-            <p>預約前請先確認須知內容。若近期有醫美、煥膚、使用酸類產品或皮膚過敏，請在預約時主動告知。</p>
-          </div>
-          <img
-            class="notice-sheet-image"
-            src="./assets/images/booking-notice.webp"
-            width="1587"
-            height="2245"
-            loading="lazy"
-            decoding="async"
-            alt="Moonshi 沐煦預約須知"
-          />
-          <div class="sheet-actions">
-            <a class="button button-dark" href="#booking-form">填寫預約模板</a>
-            <a class="button button-light" data-line-link href="#">前往 LINE</a>
-          </div>
+      <section class="section asset-section" aria-labelledby="notice-sheet-title">
+        <div class="container official-asset-layout notice-asset-layout">
+          <figure class="official-figure">
+            <img
+              class="official-image notice-image"
+              src="./assets/images/booking-notice.webp"
+              width="1587"
+              height="2245"
+              decoding="async"
+              alt="Moonshi 沐煦官方預約須知"
+            />
+            <figcaption id="notice-sheet-title">Moonshi 沐煦官方預約須知</figcaption>
+          </figure>
+          <aside class="asset-aside">
+            <p class="section-label">填寫前確認</p>
+            <h2>完整閱讀後，<br />再送出預約資料。</h2>
+            <p>近期若有醫美、煥膚、皮膚過敏或使用酸類產品，請在預約資料中主動說明。</p>
+            <div class="stacked-actions">
+              <a class="button button-primary" href="#booking-form">前往預約表單</a>
+              <a class="text-link" data-line-link href="#">開啟官方 LINE <span aria-hidden="true">→</span></a>
+            </div>
+          </aside>
           <div class="sr-only">
             <h2>預約須知文字輔助資訊</h2>
             <p>每個月 20 號中午 13:00 開放次月預約。新客首次預約需支付定金，可折抵當天消費。</p>
@@ -61,83 +70,82 @@
             <p>三天內取消預約，定金恕無法退還，特定原因除外。更改預約時段者，將收取定金 500 元。</p>
             <p>所有項目預約僅保留 15 分鐘，當天逾時超過 10 分鐘則無法使用優惠券。</p>
           </div>
-        </section>
-      </div>
-
-      <div class="container booking-section" id="booking-form">
-        <div class="section-heading">
-          <p class="eyebrow">Booking Form</p>
-          <h2>預約表單</h2>
-          <p class="lead">
-            確認上方須知後，請直接複製對應格式，填寫完成再透過 LINE 傳送給我。
-          </p>
         </div>
+      </section>
 
-        <div class="booking-grid">
-          <article class="info-card booking-card booking-card-featured">
-            <p class="offer-badge">初次預約</p>
-            <h2>請直接複製以下格式填寫</h2>
-            <div class="booking-template" id="first-booking-template">
-              <p>1. 姓名：</p>
-              <p>2. 電話：</p>
-              <p>3. 想預約日期 / 時段：</p>
-              <p>4. 目前膚況困擾：</p>
-              <p>5. 近期是否有做醫美或使用酸類產品：</p>
-              <p>6. 素顏近照 1 - 2 張：</p>
-            </div>
-            <p class="booking-note">
-              回覆確認後會提供匯款帳號，需先匯款 $500 定金。定金可折抵當天消費，完成匯款後請提供後五碼，即完成預約。
-            </p>
-            <p class="booking-note">
-              我會盡快幫你安排，也會先評估膚況，為你安排適合的療程。
-            </p>
-            <div class="booking-actions">
-              <button class="button button-light" type="button" data-copy-target="first-booking-template">
-                複製初次預約格式
-              </button>
-              <a class="button button-dark" data-line-link href="#">確認後前往 LINE 預約</a>
-            </div>
-            <p class="copy-feedback" data-copy-feedback="first-booking-template" aria-live="polite"></p>
-          </article>
+      <section class="section booking-section" id="booking-form" aria-labelledby="booking-title">
+        <div class="container">
+          <div class="section-heading booking-heading">
+            <p class="section-label">預約資料</p>
+            <h2 id="booking-title">選擇對應格式，<br />複製後填寫。</h2>
+            <p>填寫完成後，透過官方 LINE 傳送；收到資料後會盡快協助安排。</p>
+          </div>
 
-          <article class="info-card booking-card">
-            <p class="offer-badge">舊客預約</p>
-            <h2>請直接複製以下格式填寫</h2>
-            <div class="booking-template" id="return-booking-template">
-              <p>1. 姓名：</p>
-              <p>2. 電話：</p>
-              <p>3. 想預約日期 / 時段：</p>
-              <p>4. 近期是否做過臉 / 醫美 / 使用酸類產品：</p>
-            </div>
-            <p class="booking-note">收到後我會盡快幫你安排預約。</p>
-            <div class="booking-actions">
-              <button class="button button-light" type="button" data-copy-target="return-booking-template">
-                複製舊客預約格式
-              </button>
-              <a class="button button-dark" data-line-link href="#">傳送舊客預約資料</a>
-            </div>
-            <p class="copy-feedback" data-copy-feedback="return-booking-template" aria-live="polite"></p>
-          </article>
+          <div class="booking-grid">
+            <article class="booking-tool booking-tool-featured">
+              <div class="booking-tool-head">
+                <span>初次預約</span>
+                <h3>第一次到店</h3>
+              </div>
+              <div class="booking-template" id="first-booking-template">
+                <p>1. 姓名：</p>
+                <p>2. 電話：</p>
+                <p>3. 想預約日期 / 時段：</p>
+                <p>4. 目前膚況困擾：</p>
+                <p>5. 近期是否有做醫美或使用酸類產品：</p>
+                <p>6. 素顏近照 1 - 2 張：</p>
+              </div>
+              <div class="booking-notes">
+                <p>回覆確認後會提供匯款帳號，首次預約需支付 $500 定金，可折抵當天消費。</p>
+                <p>完成匯款後請提供後五碼。我會先評估膚況並盡快協助安排。</p>
+              </div>
+              <div class="booking-actions">
+                <button class="button button-secondary" type="button" data-copy-target="first-booking-template">複製預約格式</button>
+                <a class="button button-primary" data-line-link href="#">前往 LINE</a>
+              </div>
+              <p class="copy-feedback" data-copy-feedback="first-booking-template" aria-live="polite"></p>
+            </article>
+
+            <article class="booking-tool">
+              <div class="booking-tool-head">
+                <span>回訪預約</span>
+                <h3>曾經到店</h3>
+              </div>
+              <div class="booking-template" id="return-booking-template">
+                <p>1. 姓名：</p>
+                <p>2. 電話：</p>
+                <p>3. 想預約日期 / 時段：</p>
+                <p>4. 近期是否做過臉 / 醫美 / 使用酸類產品：</p>
+              </div>
+              <div class="booking-notes">
+                <p>若膚況與上次相比有明顯變化，也請一併說明，方便安排當次照護重點。</p>
+              </div>
+              <div class="booking-actions">
+                <button class="button button-secondary" type="button" data-copy-target="return-booking-template">複製預約格式</button>
+                <a class="button button-primary" data-line-link href="#">前往 LINE</a>
+              </div>
+              <p class="copy-feedback" data-copy-feedback="return-booking-template" aria-live="polite"></p>
+            </article>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <p class="footer-brand">Moonshi 沐煦</p>
-          <p>皮膚管理與保養調理工作室</p>
+      <div class="container footer-layout">
+        <div class="footer-brand-block">
+          <img src="./assets/images/logo-reference.png" width="1000" height="1000" alt="" />
+          <div><p class="footer-brand">Moonshi 沐煦</p><p>一對一肌膚管理・台中北區</p></div>
         </div>
         <div class="footer-links">
           <a href="./index.html">首頁</a>
-          <a href="./price.html">價目表</a>
-          <a href="./offers.html">優惠活動</a>
-          <a href="./location.html">工作室位置</a>
+          <a data-instagram-link href="#">Instagram</a>
+          <a data-line-link href="#">LINE</a>
         </div>
       </div>
     </footer>
 
     <script src="./assets/js/site-config.js"></script>
-    <script src="./assets/js/site.js"></script>
+    <script src="./assets/js/site.js?v=20260710-3"></script>
   </body>
 </html>

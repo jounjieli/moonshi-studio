@@ -3,57 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>價目表 | Moonshi 沐煦</title>
-    <meta name="description" content="Moonshi 沐煦價目表與服務內容。" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>服務與價格 | Moonshi 沐煦</title>
+    <meta name="description" content="Moonshi 沐煦官方服務價目表與預約諮詢入口。" />
+    <link rel="icon" href="./assets/images/logo-reference.png" type="image/png" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260710-3" />
   </head>
   <body data-page="price">
     <a class="skip-link" href="#main-content">跳到主要內容</a>
+
     <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./assets/images/logo-reference.png" alt="Moonshi 沐煦 Logo" />
-          <span>Moonshi 沐煦</span>
+      <div class="container site-nav">
+        <a class="brand-wordmark" href="./index.html" aria-label="Moonshi 沐煦首頁">
+          <span>Moonshi</span>
+          <small>沐煦</small>
         </a>
-        <nav class="nav-links" aria-label="主要導覽">
-          <a href="./index.html">首頁</a>
-          <a href="./notice.html">工作室須知</a>
-          <a href="./offers.html">優惠活動</a>
-          <a href="./location.html">工作室位置</a>
-          <a class="button button-dark" href="./notice.html#booking-form">立即預約</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="開啟導覽選單">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+        <nav class="nav-links" id="primary-navigation" aria-label="主要導覽">
+          <a aria-current="page" href="./price.html">服務價格</a>
+          <a href="./notice.html">預約須知</a>
+          <a href="./offers.html">目前活動</a>
+          <a href="./location.html">到店資訊</a>
+          <a class="nav-action" href="./notice.html#booking-form">立即預約</a>
         </nav>
       </div>
     </header>
 
-    <main class="section" id="main-content">
-      <div class="container page-head">
-        <p class="eyebrow">Price List</p>
-        <h1>服務與價格</h1>
-        <p class="lead">
-          下方為目前官方價目表。實際建議項目仍會依照你的膚況、生活習慣與保養需求進行評估。
-        </p>
-      </div>
+    <main id="main-content">
+      <header class="page-hero">
+        <div class="container page-hero-layout">
+          <div>
+            <p class="section-label">服務資訊</p>
+            <h1>服務與價格</h1>
+          </div>
+          <p>
+            下方為目前官方價目表。實際安排會依膚況、近期保養與當日評估調整；不確定如何選擇時，可以先透過 LINE 諮詢。
+          </p>
+        </div>
+      </header>
 
-      <div class="container asset-page-layout">
-        <section class="info-card official-sheet-card">
-          <div class="sheet-intro">
-            <p class="eyebrow">Official Price List</p>
-            <h2>官方價目表</h2>
-            <p>服務會依照膚況與當天評估調整。若你不確定適合哪個項目，可以先到 LINE 傳照片與目前困擾，我會協助判斷方向。</p>
-          </div>
-          <img
-            class="price-sheet-image"
-            src="./assets/images/price-list.webp"
-            width="1080"
-            height="1350"
-            loading="lazy"
-            decoding="async"
-            alt="Moonshi 沐煦價目表"
-          />
-          <div class="sheet-actions">
-            <a class="button button-dark" href="./notice.html#booking-form">查看預約方式</a>
-            <a class="button button-light" data-line-link href="#">LINE 諮詢</a>
-          </div>
+      <section class="section asset-section" aria-labelledby="price-sheet-title">
+        <div class="container official-asset-layout">
+          <figure class="official-figure">
+            <img
+              class="official-image"
+              src="./assets/images/price-list.webp"
+              width="1080"
+              height="1350"
+              decoding="async"
+              alt="Moonshi 沐煦官方價目表"
+            />
+            <figcaption id="price-sheet-title">Moonshi 沐煦官方價目表</figcaption>
+          </figure>
+
+          <aside class="asset-aside">
+            <p class="section-label">預約建議</p>
+            <h2>先看需求，<br />不必急著選項目。</h2>
+            <p>初次預約可提供素顏近照、目前最在意的膚況，以及近期是否做過醫美或使用酸類產品。</p>
+            <div class="stacked-actions">
+              <a class="button button-primary" href="./notice.html#booking-form">查看預約方式</a>
+              <a class="text-link" data-line-link href="#">前往 LINE 諮詢 <span aria-hidden="true">→</span></a>
+            </div>
+          </aside>
+
           <div class="sr-only">
             <h2>價目表文字輔助資訊</h2>
             <p>初見淨膚管理體驗價 1200 元，原價 1500 元。</p>
@@ -62,26 +75,36 @@
             <p>外泌體光感拋光肌管理體驗價 2500 元，原價 3000 元。</p>
             <p>客製化肌膚管理 2500 元至 6000 元，需依膚況評估。</p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      <section class="booking-callout" aria-labelledby="price-cta-title">
+        <div class="container booking-callout-inner">
+          <div>
+            <p class="section-label section-label-light">第一次預約</p>
+            <h2 id="price-cta-title">先確認膚況，再安排服務。</h2>
+            <p>完成須知閱讀與預約資料後，我會盡快協助安排。</p>
+          </div>
+          <a class="button button-light" href="./notice.html#booking-form">前往預約表單</a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <p class="footer-brand">Moonshi 沐煦</p>
-          <p>皮膚管理與保養調理工作室</p>
+      <div class="container footer-layout">
+        <div class="footer-brand-block">
+          <img src="./assets/images/logo-reference.png" width="1000" height="1000" alt="" />
+          <div><p class="footer-brand">Moonshi 沐煦</p><p>一對一肌膚管理・台中北區</p></div>
         </div>
         <div class="footer-links">
           <a href="./index.html">首頁</a>
-          <a href="./notice.html">工作室須知</a>
-          <a href="./offers.html">優惠活動</a>
-          <a href="./location.html">工作室位置</a>
+          <a data-instagram-link href="#">Instagram</a>
+          <a data-line-link href="#">LINE</a>
         </div>
       </div>
     </footer>
 
     <script src="./assets/js/site-config.js"></script>
-    <script src="./assets/js/site.js"></script>
+    <script src="./assets/js/site.js?v=20260710-3"></script>
   </body>
 </html>

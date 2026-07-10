@@ -3,101 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>工作室位置 | Moonshi 沐煦</title>
-    <meta name="description" content="Moonshi 沐煦工作室到店資訊、位置指引與 Google Maps 導航。" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>到店資訊 | Moonshi 沐煦</title>
+    <meta name="description" content="Moonshi 沐煦台中北區工作室地址、位置指引與 Google Maps 導航。" />
+    <link rel="icon" href="./assets/images/logo-reference.png" type="image/png" />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260710-3" />
   </head>
   <body data-page="location">
     <a class="skip-link" href="#main-content">跳到主要內容</a>
+
     <header class="site-header">
-      <div class="container nav">
-        <a class="brand" href="./index.html">
-          <img class="brand-logo" src="./assets/images/logo-reference.png" alt="Moonshi 沐煦 Logo" />
-          <span>Moonshi 沐煦</span>
+      <div class="container site-nav">
+        <a class="brand-wordmark" href="./index.html" aria-label="Moonshi 沐煦首頁">
+          <span>Moonshi</span>
+          <small>沐煦</small>
         </a>
-        <nav class="nav-links" aria-label="主要導覽">
-          <a href="./index.html">首頁</a>
-          <a href="./price.html">價目表</a>
-          <a href="./notice.html">工作室須知</a>
-          <a href="./offers.html">優惠活動</a>
-          <a class="button button-dark" href="./notice.html#booking-form">立即預約</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="開啟導覽選單">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+        <nav class="nav-links" id="primary-navigation" aria-label="主要導覽">
+          <a href="./price.html">服務價格</a>
+          <a href="./notice.html">預約須知</a>
+          <a href="./offers.html">目前活動</a>
+          <a aria-current="page" href="./location.html">到店資訊</a>
+          <a class="nav-action" href="./notice.html#booking-form">立即預約</a>
         </nav>
       </div>
     </header>
 
-    <main class="section" id="main-content">
-      <div class="container page-head">
-        <p class="eyebrow">Location</p>
-        <h1>到店資訊</h1>
-        <p class="lead">
-          工作室位於台中市北區。完成預約後，可依下方位置指引與 Google Maps 前往；若有交通或停車疑問，也可以先透過 LINE 詢問。
-        </p>
-      </div>
-
-      <div class="container two-column align-start">
-        <section class="stack-list" aria-label="到店前確認">
-          <article class="info-card">
-            <p class="offer-badge">Address</p>
-            <h2>工作室地址</h2>
-            <p data-address-area>404 台中市北區淡溝里博館路52號</p>
-          </article>
-          <article class="info-card">
-            <p class="offer-badge">Before Visit</p>
-            <h2>到店前確認</h2>
-            <ul class="bullet-list">
-              <li>建議完成預約後，再依當日交通狀況安排出發時間。</li>
-              <li>若你第一次到訪，可先開啟下方 Google Maps 導航確認路線。</li>
-              <li>若可能遲到，請提前透過 LINE 告知，避免影響後續預約安排。</li>
-            </ul>
-          </article>
-        </section>
-
-        <aside class="info-card map-cta-card">
-          <p class="offer-badge">Navigation</p>
-          <h2>Google Maps 導航</h2>
-          <p>按下方按鈕可直接開啟導航。建議出發前再次確認路線與交通時間。</p>
-          <a class="button button-dark" data-map-link href="#">開啟 Google Maps</a>
-          <p class="helper-text" data-map-helper>建議出發前再次確認路線與交通時間。</p>
-        </aside>
-      </div>
-
-      <div class="container location-map-section">
-        <article class="info-card location-map-panel">
+    <main id="main-content">
+      <header class="page-hero">
+        <div class="container page-hero-layout">
           <div>
-            <p class="eyebrow">Studio Map</p>
-            <h2>位置指引圖</h2>
-            <p>下方為目前官方位置指引圖。到店前可搭配 Google Maps 確認路線。</p>
+            <p class="section-label">Moonshi Studio</p>
+            <h1>到店資訊</h1>
           </div>
-          <img
-            class="location-map-image"
-            src="./assets/images/location-map.webp"
-            width="1122"
-            height="1402"
-            loading="lazy"
-            decoding="async"
-            alt="Moonshi 沐煦工作室位置指引圖"
-          />
-          <a class="button button-dark" data-map-link href="#">開啟 Google Maps</a>
-        </article>
-      </div>
+          <p>工作室位於台中市北區、國立自然科學博物館附近。完成預約後，可依官方位置圖與 Google Maps 前往。</p>
+        </div>
+      </header>
+
+      <section class="location-summary" aria-labelledby="address-title">
+        <div class="container location-summary-inner">
+          <div>
+            <p class="section-label">工作室地址</p>
+            <h2 id="address-title" data-address-area>404 台中市北區淡溝里博館路52號</h2>
+          </div>
+          <div class="location-actions">
+            <a class="button button-primary" data-map-link href="#">開啟 Google Maps</a>
+            <a class="text-link" data-line-link href="#">交通問題請洽 LINE <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section asset-section" aria-labelledby="location-map-title">
+        <div class="container official-asset-layout location-asset-layout">
+          <figure class="official-figure">
+            <img
+              class="official-image location-image"
+              src="./assets/images/location-map.webp"
+              width="1122"
+              height="1402"
+              decoding="async"
+              alt="Moonshi 沐煦工作室官方位置指引圖"
+            />
+            <figcaption id="location-map-title">Moonshi 沐煦官方位置指引圖</figcaption>
+          </figure>
+          <aside class="asset-aside">
+            <p class="section-label">到店提醒</p>
+            <h2>出發前，<br />再次確認路線。</h2>
+            <p>首次到店建議預留找路時間；若可能遲到，請提前透過 LINE 告知。</p>
+            <a class="button button-primary" data-map-link href="#">開始導航</a>
+            <p class="helper-text" data-map-helper>建議出發前再次確認路線與交通時間。</p>
+          </aside>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <p class="footer-brand">Moonshi 沐煦</p>
-          <p>皮膚管理與保養調理工作室</p>
+      <div class="container footer-layout">
+        <div class="footer-brand-block">
+          <img src="./assets/images/logo-reference.png" width="1000" height="1000" alt="" />
+          <div><p class="footer-brand">Moonshi 沐煦</p><p>一對一肌膚管理・台中北區</p></div>
         </div>
         <div class="footer-links">
           <a href="./index.html">首頁</a>
-          <a href="./price.html">價目表</a>
-          <a href="./notice.html">工作室須知</a>
-          <a href="./offers.html">優惠活動</a>
+          <a data-instagram-link href="#">Instagram</a>
+          <a data-line-link href="#">LINE</a>
         </div>
       </div>
     </footer>
 
     <script src="./assets/js/site-config.js"></script>
-    <script src="./assets/js/site.js"></script>
+    <script src="./assets/js/site.js?v=20260710-3"></script>
   </body>
 </html>

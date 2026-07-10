@@ -9,7 +9,7 @@ Moonshi 沐煦的靜態網站與本地自媒體素材資料夾。
 - `index.html`：首頁
 - `price.html`：價目表
 - `notice.html`：工作室須知與預約表單
-- `offers.html`：優惠活動
+- `offers.html`：目前活動
 - `location.html`：工作室位置
 - `assets/css/styles.css`：網站樣式
 - `assets/js/site.js`：網站互動功能
@@ -31,7 +31,7 @@ Moonshi 沐煦的靜態網站與本地自媒體素材資料夾。
 - A 價目表：`/price.html`
 - B Instagram：`https://www.instagram.com/moonshi_studio/?hl=zh-tw`
 - C 工作室須知：`/notice.html`
-- D 優惠活動：`/offers.html`
+- D 目前活動：`/offers.html`
 - E 立即預約：`/notice.html#booking-form`
 - F Google Maps：`https://maps.app.goo.gl/88yNAWdGUrKHy8dH8`
 
