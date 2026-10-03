@@ -953,6 +953,10 @@ button {
     order: -1;
   }
 
+  body[data-page="price"] .asset-aside {
+    order: 0;
+  }
+
   .official-figure {
     width: min(100%, 760px);
   }

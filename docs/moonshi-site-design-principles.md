@@ -1,6 +1,6 @@
 # Moonshi 沐煦網站設計規範
 
-更新日期：2026-07-10
+更新日期：2026-10-04
 版本：2.0
 
 ## 產品任務
@@ -44,7 +44,7 @@
 
 以下素材是對應資訊的唯一可見來源：
 
-- `assets/images/price-list.webp`：價目表。
+- `assets/images/price-list-20261003.jpg`：最新版官方價目表原圖。
 - `assets/images/booking-notice.webp`：預約須知。
 - `assets/images/location-map.webp`：位置指引。
 
@@ -87,6 +87,9 @@
 - 共用色彩、字體、間距、圓角與動態集中在 `assets/css/styles.css`。
 - IG、LINE、地址與地圖集中在 `assets/js/site-config.js`。
 - CSS/JS 使用版本查詢避免 GitHub Pages 發布後出現新舊快取混用。
+- 手機版價目頁先顯示官方價目表，再顯示預約建議，並提供原圖放大入口。
+- 初次預約統一要求素顏無濾鏡近照 3 張（正臉、左臉、右臉）；表單前需提醒閱讀須知，收到預約完成的確認訊息才算完成預約。
+- 各頁分享標題與摘要對應頁面內容，分享封面統一使用正式 Logo `assets/images/logo-reference.png`。
 - 每頁只能有一個 `h1`，所有圖片需有尺寸與替代文字。
 - 上線前以桌機與手機逐頁驗證：水平溢出、圖片比例、導覽、主要 CTA、複製功能、外部連結、Console error 與舊版禁用文案。
 
