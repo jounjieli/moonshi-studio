@@ -686,6 +686,46 @@ button {
   align-items: start;
 }
 
+.booking-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.booking-steps li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.booking-steps li > span {
+  color: var(--sage);
+  font-family: "Noto Serif TC", "PMingLiU", serif;
+  font-size: 1.65rem;
+}
+
+.booking-steps h3 {
+  margin: 0 0 8px;
+}
+
+.booking-steps p,
+.booking-entry p {
+  max-width: 48em;
+  color: var(--ink-soft);
+}
+
+.booking-entry {
+  margin: 24px 0 48px;
+}
+
+.booking-entry .button {
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
 .booking-tool {
   padding: 34px;
   background: rgba(255, 255, 255, 0.78);

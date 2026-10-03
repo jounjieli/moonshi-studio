@@ -115,6 +115,7 @@
 
   applyLinks("[data-instagram-link]", config.instagramUrl);
   applyLinks("[data-line-link]", config.lineUrl);
+  applyLinks("[data-booking-link]", config.bookingUrl);
   applyLinks("[data-map-link]", config.mapUrl);
 
   const addressArea = document.querySelector("[data-address-area]");

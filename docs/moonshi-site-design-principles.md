@@ -9,7 +9,7 @@
 
 1. 理解 Moonshi 沐煦的一對一照護方式。
 2. 找到官方價格、須知、活動與位置資訊。
-3. 複製預約格式並前往官方 LINE 完成確認。
+3. 前往既有 App 選擇服務與時段，透過官方 LINE 補充膚況與完成確認。
 
 網站不是 LINE 圖文選單的說明頁，也不是內部測試介面。前台不得出現「按鈕已接好」「之後可替換」「更新方式」等開發或溝通語氣。
 
@@ -54,7 +54,7 @@
 
 - `index.html`：品牌第一印象、照護理念、固定資訊入口與預約前導。
 - `price.html`：官方價目表、選擇建議與預約入口。
-- `notice.html`：官方預約須知、初次／回訪預約格式與複製功能。
+- `notice.html`：官方預約須知、App 預約流程與初次／回訪準備事項。
 - `offers.html`：目前活動狀態、新客／回訪路徑與 LINE 詢問入口。
 - `location.html`：地址、官方位置圖與 Google Maps 導航。
 
@@ -64,12 +64,14 @@
 - B：Instagram
 - C：`/notice.html`
 - D：`/offers.html`
-- E：`/notice.html#booking-form`
-- F：Google Maps
+- E：既有 App `https://liff.line.me/2011289376-CVO4Qkqq`。
+- F：`/location.html`，頁內提供 Google Maps 導航。
+- `notice.html#booking-form` 保留為舊連結相容入口，內容改為 App 流程，不再要求重填 LINE 預約表單。
 
 ## 行動與導覽
 
-- 每頁主導覽固定為服務價格、預約須知、目前活動、到店資訊、立即預約。
+- 每頁主導覽固定為服務價格、預約須知、目前活動、到店資訊、App 預約。
+- 主預約入口一律使用 `data-booking-link` 與 `bookingUrl`，初次與回訪使用同一 App；LINE 僅用於諮詢、補充照片與確認，不作為第二份預約表單。
 - 每頁只保留一個最主要的下一步；其他入口使用文字連結降低競爭。
 - 820px 以下使用按鈕開啟導覽，必須同步 `aria-expanded`、可用 Escape 關閉，且不得鎖住頁面造成黑畫面或不可捲動。
 - 外部連結由 `assets/js/site-config.js` 注入，並使用 `target="_blank"` 與 `rel="noreferrer"`。
@@ -85,10 +87,13 @@
 
 - 維持靜態 HTML、CSS、JavaScript 與 GitHub Pages 部署，不引入不必要框架。
 - 共用色彩、字體、間距、圓角與動態集中在 `assets/css/styles.css`。
-- IG、LINE、地址與地圖集中在 `assets/js/site-config.js`。
+- IG、LINE、App 預約、地址與地圖集中在 `assets/js/site-config.js`。
 - CSS/JS 使用版本查詢避免 GitHub Pages 發布後出現新舊快取混用。
 - 手機版價目頁先顯示官方價目表，再顯示預約建議，並提供原圖放大入口。
-- 初次預約統一要求素顏無濾鏡近照 3 張（正臉、左臉、右臉）；表單前需提醒閱讀須知，收到預約完成的確認訊息才算完成預約。
+- 初次預約統一要求素顏無濾鏡近照 3 張（正臉、左臉、右臉）；App 預約前需提醒閱讀須知，收到預約完成的確認訊息才算完成預約。
+- 新客在 App 提交後透過 LINE 補充照片與膚況；舊客僅補充近期變化，不要求重填姓名、電話與時段。
+- LINE 關鍵字分為 App 預約、服務價格、工作室須知三種回覆，避免同一問題回傳完整長表單。
+- 不在網站收集膚況、照片或電話，不把 App 連結點擊誤記為已完成預約；未實際量測前不得宣稱轉換率提升。
 - 各頁分享標題與摘要對應頁面內容，分享封面統一使用正式 Logo `assets/images/logo-reference.png`。
 - 每頁只能有一個 `h1`，所有圖片需有尺寸與替代文字。
 - 上線前以桌機與手機逐頁驗證：水平溢出、圖片比例、導覽、主要 CTA、複製功能、外部連結、Console error 與舊版禁用文案。
