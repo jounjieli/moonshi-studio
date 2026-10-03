@@ -1,0 +1,12 @@
+{
+  "updated": "2026-10-04",
+  "account": "@300shhin",
+  "measurement": "LINE 加入好友管道，不代表掃碼次數或完成預約數",
+  "channels": [
+    { "slug": "ig", "label": "IG", "url": "https://lin.ee/xkDOV4J", "trackingId": "6840194" },
+    { "slug": "threads", "label": "Threads", "url": "https://lin.ee/XZSHopp", "trackingId": "7228368" },
+    { "slug": "website", "label": "官網", "url": "https://lin.ee/Y8PtVTg", "trackingId": "7228369" },
+    { "slug": "print", "label": "實體名片", "url": "https://lin.ee/UfczO5a", "trackingId": "7228370" }
+  ]
+}
+
