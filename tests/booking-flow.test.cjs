@@ -30,6 +30,7 @@ test("legacy booking anchor explains App flow without a duplicate form", () => {
   assert.doesNotMatch(html, /訂金|定金|空檔費|匯款|後五碼|booking-notice\.webp/);
   assert.match(html, /工作室注意事項/);
   assert.match(html, /如需更改或取消預約，請提前透過官方 LINE 告知/);
+  assert.match(html, /施作療程建議裡面穿著小背心，療程內容含按摩肩頸。/);
   assert.doesNotMatch(html, /data-copy-target|first-booking-template|return-booking-template/);
 });
 
