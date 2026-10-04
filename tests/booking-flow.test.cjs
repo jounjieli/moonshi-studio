@@ -34,6 +34,18 @@ test("legacy booking anchor explains App flow without a duplicate form", () => {
   assert.doesNotMatch(html, /data-copy-target|first-booking-template|return-booking-template/);
 });
 
+test("notice displays the current poster with a zoom link and accessible rules", () => {
+  const html = read("notice.html");
+  const poster = "assets/images/studio-notice-20261004.jpg";
+  assert.ok(fs.statSync(path.join(root, poster)).size > 0);
+  assert.ok(html.includes(`href="./${poster}" target="_blank" rel="noreferrer"`));
+  assert.ok(html.includes(`src="./${poster}" width="853" height="1280"`));
+  assert.match(html, /class="notice-accessible-copy"/);
+  const rules = html.match(/<ul class="studio-notice-rules">([\s\S]*?)<\/ul>/)[1];
+  assert.equal((rules.match(/<li>/g) || []).length, 10);
+  assert.match(html, /notice\.css\?v=20261004-2/);
+});
+
 test("published pages do not restore the retired fee requirements or notice image", () => {
   for (const file of fs.readdirSync(root).filter((name) => name.endsWith(".html"))) {
     assert.doesNotMatch(read(file), /訂金|定金|空檔費|空档费|匯款|後五碼|booking-notice\.webp/, file);

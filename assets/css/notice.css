@@ -1,17 +1,21 @@
-.studio-notice-sheet {
-  padding: clamp(24px, 4vw, 52px);
-  border: 1px solid var(--line);
-  background: linear-gradient(135deg, var(--paper), #eeeae2);
+.notice-image-link {
+  display: block;
+  max-width: 700px;
 }
 
-.studio-notice-sheet h2 {
-  font-family: "Noto Serif TC", "PMingLiU", serif;
-  font-size: clamp(1.7rem, 4vw, 2.5rem);
-  margin: 14px 0 20px;
+.notice-image-link:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 6px;
 }
 
-.notice-intro { color: var(--ink-soft); }
-.studio-notice-rules { padding-left: 1.3em; margin: 28px 0; }
-.studio-notice-rules li { padding-left: 6px; margin: 0 0 18px; }
-.studio-notice-rules li::marker { color: var(--ink-soft); }
-.notice-contact { padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: 0.9rem; }
+.notice-accessible-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
