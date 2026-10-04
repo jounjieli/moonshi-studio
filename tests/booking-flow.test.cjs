@@ -27,8 +27,16 @@ test("legacy booking anchor explains App flow without a duplicate form", () => {
   assert.match(html, /class="booking-steps"/);
   assert.match(html, /素顏無濾鏡近照 3 張（正臉、左臉、右臉）/);
   assert.match(html, /收到預約完成的確認訊息，才算完成預約/);
-  assert.match(html, /首次預約需支付 \$500 定金/);
+  assert.doesNotMatch(html, /訂金|定金|空檔費|匯款|後五碼|booking-notice\.webp/);
+  assert.match(html, /工作室注意事項/);
+  assert.match(html, /如需更改或取消預約，請提前透過官方 LINE 告知/);
   assert.doesNotMatch(html, /data-copy-target|first-booking-template|return-booking-template/);
+});
+
+test("published pages do not restore the retired fee requirements or notice image", () => {
+  for (const file of fs.readdirSync(root).filter((name) => name.endsWith(".html"))) {
+    assert.doesNotMatch(read(file), /訂金|定金|空檔費|空档费|匯款|後五碼|booking-notice\.webp/, file);
+  }
 });
 
 test("shared configuration applies the existing App URL safely", () => {
