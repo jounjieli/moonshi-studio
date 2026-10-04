@@ -43,7 +43,8 @@ test("notice displays the current poster with a zoom link and accessible rules",
   assert.match(html, /class="notice-accessible-copy"/);
   const rules = html.match(/<ul class="studio-notice-rules">([\s\S]*?)<\/ul>/)[1];
   assert.equal((rules.match(/<li>/g) || []).length, 10);
-  assert.match(html, /notice\.css\?v=20261004-2/);
+  assert.match(html, /notice\.css\?v=20261004-3/);
+  assert.match(read("assets/css/notice.css"), /\.notice-asset-layout \.asset-aside\s*\{\s*order: 0;/);
 });
 
 test("published pages do not restore the retired fee requirements or notice image", () => {

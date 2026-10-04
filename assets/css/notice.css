@@ -8,6 +8,10 @@
   outline-offset: 6px;
 }
 
+.notice-asset-layout .asset-aside {
+  order: 0;
+}
+
 .notice-accessible-copy {
   position: absolute;
   width: 1px;
