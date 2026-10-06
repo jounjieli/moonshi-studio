@@ -26,3 +26,14 @@ test("website inquiries keep the website source and do not change App bookings",
   assert.ok(read("assets/js/site-config.js").includes('lineUrl: "https://lin.ee/Y8PtVTg"'));
   assert.ok(read("assets/js/site-config.js").includes('bookingUrl: "https://liff.line.me/2011289376-CVO4Qkqq"'));
 });
+
+test("website LINE links retain their tracked source without JavaScript", () => {
+  const channel = manifest.channels.find((item) => item.slug === "website");
+  for (const file of ["index.html", "price.html", "notice.html", "offers.html", "location.html", "share.html"]) {
+    const links = [...read(file).matchAll(/<a\b[^>]*\bdata-line-link\b[^>]*>/g)];
+    assert.ok(links.length > 0, `${file} has a LINE entry`);
+    for (const [link] of links) {
+      assert.ok(link.includes(`href="${channel.url}"`), `${file} preserves the website source`);
+    }
+  }
+});
