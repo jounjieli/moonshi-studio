@@ -9,7 +9,7 @@ const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const bookingUrl = "https://liff.line.me/2011289376-CVO4Qkqq";
 
 test("all pages have the same App booking action and fresh shared assets", () => {
-  for (const file of ["index.html", "price.html", "notice.html", "offers.html", "location.html"]) {
+  for (const file of ["index.html", "price.html", "notice.html", "offers.html", "location.html", "products.html"]) {
     const html = read(file);
     assert.match(html, /class="nav-action" data-booking-link/);
     assert.ok(html.includes(`href="${bookingUrl}"`), file);
