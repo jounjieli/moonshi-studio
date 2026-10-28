@@ -8,9 +8,12 @@
     if (!response.ok) throw new Error("Product list unavailable");
     const products = await response.json();
     if (!Array.isArray(products)) throw new Error("Invalid product list");
+    if (!products.every((product) => product && Number.isFinite(product.price) && product.price >= 0)) {
+      throw new Error("Every product needs a valid price");
+    }
 
     const imageRoot = new URL("./assets/images/products/", document.baseURI);
-    const cards = products.map((product) => {
+    const cards = [...products].sort((a, b) => a.price - b.price).map((product) => {
       if (!product || typeof product.image !== "string") throw new Error("Missing product image");
       const imageUrl = new URL(product.image, document.baseURI);
       if (imageUrl.origin !== imageRoot.origin || !imageUrl.pathname.startsWith(imageRoot.pathname)) {
@@ -36,13 +39,18 @@
       }
       link.append(image);
       card.append(link);
-      if (name || product.description) {
+      {
         const caption = document.createElement("figcaption");
         if (name) {
           const heading = document.createElement("h3");
           heading.textContent = name;
           caption.append(heading);
         }
+        const price = document.createElement("p");
+        price.className = "product-price";
+        price.textContent = `NT$ ${new Intl.NumberFormat("zh-TW").format(product.price)}`;
+        if (typeof product.volume === "string" && product.volume) price.textContent += ` · ${product.volume}`;
+        caption.append(price);
         if (typeof product.description === "string" && product.description) {
           const description = document.createElement("p");
           description.textContent = product.description;

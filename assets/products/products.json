@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "image": "./assets/images/products/bio-renewal-amino-cleanser-20261029.jpg",
+    "name": "胺基酸洗面乳",
+    "alt": "Bio Renewal 胺基酸洗面乳產品介紹，120 ml，售價 880 元",
+    "price": 880,
+    "volume": "120 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-cleansing-gel-20261029.jpg",
+    "name": "高效卸潔蜜",
+    "alt": "Bio Renewal 高效卸潔蜜產品介紹，150 ml，售價 1200 元",
+    "price": 1200,
+    "volume": "150 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-dragon-blood-mask-20261029.jpg",
+    "name": "龍血舒緩凍膜",
+    "alt": "Bio Renewal 龍血舒緩凍膜產品介紹，100 ml，售價 1200 元",
+    "price": 1200,
+    "volume": "100 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-collagen-toner-20261029.jpg",
+    "name": "深海膠原活化機能水",
+    "alt": "Bio Renewal 深海膠原活化機能水產品介紹，150 ml，售價 1280 元",
+    "price": 1280,
+    "volume": "150 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-b5-moisture-mask-20261029.jpg",
+    "name": "B5 長效保濕面膜",
+    "alt": "Bio Renewal B5 長效保濕面膜產品介紹，100 ml，售價 1380 元",
+    "price": 1380,
+    "volume": "100 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-collagen-serum-20261029.jpg",
+    "name": "膠原修護精華液",
+    "alt": "Bio Renewal 膠原修護精華液產品介紹，30 ml，售價 1500 元",
+    "price": 1500,
+    "volume": "30 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-damask-rose-mist-20261029.jpg",
+    "name": "大馬士革玫瑰精露",
+    "alt": "Bio Renewal 大馬士革玫瑰精露產品介紹，150 ml，售價 1680 元",
+    "price": 1680,
+    "volume": "150 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-hydrating-ampoule-20261029.jpg",
+    "name": "超水感精華安瓶",
+    "alt": "Bio Renewal 超水感精華安瓶產品介紹，120 ml，售價 2000 元",
+    "price": 2000,
+    "volume": "120 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-brightening-emulsion-20261029.jpg",
+    "name": "激光煥白新生活化乳",
+    "alt": "Bio Renewal 激光煥白新生活化乳產品介紹，120 ml，售價 2600 元",
+    "price": 2600,
+    "volume": "120 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-24h-moisture-lotion-20261029.jpg",
+    "name": "24 小時超保濕乳液",
+    "alt": "Bio Renewal 24 小時超保濕乳液產品介紹，30 ml，售價 2600 元",
+    "price": 2600,
+    "volume": "30 ml",
+    "width": 720,
+    "height": 1280
+  }
+]
