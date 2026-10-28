@@ -46,11 +46,20 @@
           heading.textContent = name;
           caption.append(heading);
         }
-        const price = document.createElement("p");
-        price.className = "product-price";
-        price.textContent = `NT$ ${new Intl.NumberFormat("zh-TW").format(product.price)}`;
-        if (typeof product.volume === "string" && product.volume) price.textContent += ` · ${product.volume}`;
-        caption.append(price);
+        const options = product.variants === undefined ? [product] : product.variants;
+        if (!Array.isArray(options) || !options.length || options.some((option) => !option || !Number.isFinite(option.price) || option.price < 0)) {
+          throw new Error("Invalid product variants");
+        }
+        if (product.price !== Math.min(...options.map((option) => option.price))) {
+          throw new Error("Product sort price must match its lowest variant price");
+        }
+        for (const option of [...options].sort((a, b) => a.price - b.price)) {
+          const price = document.createElement("p");
+          price.className = "product-price";
+          price.textContent = `NT$ ${new Intl.NumberFormat("zh-TW").format(option.price)}`;
+          if (typeof option.volume === "string" && option.volume) price.textContent += ` · ${option.volume}`;
+          caption.append(price);
+        }
         if (typeof product.description === "string" && product.description) {
           const description = document.createElement("p");
           description.textContent = product.description;

@@ -88,5 +88,89 @@
     "volume": "30 ml",
     "width": 720,
     "height": 1280
+  },
+  {
+    "image": "./assets/images/products/gerards-enzyme-exfoliant-20261029.jpg",
+    "name": "酵素去角質乳",
+    "alt": "Gerard's 酵素去角質乳產品介紹，250 ml，售價 2800 元",
+    "price": 2800,
+    "volume": "250 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-bee-venom-oil-20261029.jpg",
+    "name": "皇家蜂萃精華油",
+    "alt": "Bio Renewal 皇家蜂萃精華油產品介紹，30 ml 售價 1680 元、50 ml 售價 2800 元",
+    "price": 1680,
+    "variants": [
+      { "volume": "30 ml", "price": 1680 },
+      { "volume": "50 ml", "price": 2800 }
+    ],
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-firming-travel-set-20261029.jpg",
+    "name": "逆齡緊實保養組",
+    "alt": "Bio Renewal 逆齡緊實保養組產品介紹，每組售價 890 元",
+    "price": 890,
+    "volume": "1 組",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-moisture-travel-set-20261029.jpg",
+    "name": "保濕修護調理組",
+    "alt": "Bio Renewal 保濕修護調理組產品介紹，每組售價 890 元",
+    "price": 890,
+    "volume": "1 組",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-vitamin-c-20-ampoule-20261029.jpg",
+    "name": "20% 原型左 C 安瓶",
+    "alt": "Bio Renewal 20% 原型左 C 安瓶產品介紹，15 ml，售價 1880 元",
+    "price": 1880,
+    "volume": "15 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/guardian-dragon-centella-mask-20261029.jpg",
+    "name": "龍血積雪草修護面膜",
+    "alt": "GN GUARDIAN 龍血積雪草修護面膜產品介紹，每片優惠價 129 元",
+    "price": 129,
+    "volume": "1 片（優惠價）",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-uv-spf50-lotion-20261029.jpg",
+    "name": "抗 UV 全效乳 SPF50+（膚色／白色）",
+    "alt": "Bio Renewal 抗 UV 全效乳 SPF50+ 產品介紹，膚色與白色，30 ml，售價 1380 元",
+    "price": 1380,
+    "volume": "30 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/bio-renewal-c-pomelo-cream-20261029.jpg",
+    "name": "C 柚水光乳霜",
+    "alt": "Bio Renewal C 柚水光乳霜產品介紹，50 ml，售價 2980 元",
+    "price": 2980,
+    "volume": "50 ml",
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "image": "./assets/images/products/pharmann-acne-cream-20261029.jpg",
+    "name": "深淨痘痘霜（痘霜）",
+    "alt": "Pharmann 深淨痘痘霜產品介紹，50 ml，售價 1900 元",
+    "price": 1900,
+    "volume": "50 ml",
+    "width": 720,
+    "height": 1280
   }
 ]
