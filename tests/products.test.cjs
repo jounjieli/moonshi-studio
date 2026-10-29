@@ -60,10 +60,13 @@ class Element {
     this.attributes = {};
     this.textContent = "";
     this.hidden = false;
+    this.listeners = {};
   }
   setAttribute(key, value) { this.attributes[key] = value; }
   append(...children) { this.children.push(...children); }
   replaceChildren(...children) { this.children = children; }
+  addEventListener(name, callback) { this.listeners[name] = callback; }
+  click() { if (!this.disabled) this.listeners.click?.(); }
 }
 
 async function render(products, ok = true) {
@@ -71,12 +74,22 @@ async function render(products, ok = true) {
   gallery.hidden = true;
   const empty = new Element("div");
   const status = new Element("p");
+  const pagination = new Element("div");
+  pagination.hidden = true;
+  const pageNumbers = new Element("div");
+  const previous = new Element("button");
+  const next = new Element("button");
+  const pageStatus = new Element("p");
   let requestedUrl;
   await vm.runInNewContext(read("assets/js/products.js"), {
     URL,
     document: {
       baseURI: "https://jounjieli.github.io/moonshi-studio/products.html",
-      getElementById(id) { return { "products-gallery": gallery, "products-empty": empty, "products-status": status }[id]; },
+      getElementById(id) { return {
+        "products-gallery": gallery, "products-empty": empty, "products-status": status,
+        "products-pagination": pagination, "products-pages": pageNumbers,
+        "products-prev": previous, "products-next": next, "products-page-status": pageStatus,
+      }[id]; },
       createElement(tag) { return new Element(tag); },
     },
     fetch: async (url) => {
@@ -84,7 +97,7 @@ async function render(products, ok = true) {
       return { ok, json: async () => products };
     },
   });
-  return { gallery, empty, status, requestedUrl };
+  return { gallery, empty, status, requestedUrl, pagination, pageNumbers, previous, next, pageStatus };
 }
 
 test("empty product data preserves the public placeholder", async () => {
@@ -154,7 +167,7 @@ test("the original ten products retain their supplied prices and volumes", () =>
   ]);
   assert.equal(new Set(products.map(({ image }) => image)).size, 19);
   assert.match(read("products.html"), /依售價由低至高排列，多規格以最低售價排序/);
-  assert.match(read("products.html"), /products\.js\?v=20261029-3/);
+  assert.match(read("products.html"), /products\.js\?v=20261029-4/);
 });
 
 test("nine additional images match the supplied prices, units and variants", () => {
@@ -207,4 +220,51 @@ test("all nineteen displayed cards sort from the 129 mask to the 2980 cream", as
   assert.equal(names.at(-1), "C 柚水光乳霜");
   const prices = names.map((name) => data.find((p) => p.name === name).price);
   assert.deepEqual(prices, [...prices].sort((a, b) => a - b));
+});
+
+test("nineteen products paginate as nine, nine and one without changing order", async () => {
+  const result = await render(JSON.parse(read("assets/products/products.json")));
+  const visible = () => result.gallery.children.filter((card) => !card.hidden);
+  const names = () => visible().map((card) => card.children[1].children[0].textContent);
+  assert.equal(result.pagination.hidden, false);
+  assert.equal(visible().length, 9);
+  assert.equal(result.previous.disabled, true);
+  assert.equal(result.next.disabled, false);
+  assert.equal(result.pageNumbers.children.length, 3);
+  assert.equal(result.pageNumbers.children[0].attributes["aria-current"], "page");
+  assert.match(result.pageStatus.textContent, /第 1 \/ 3 頁/);
+  const allNames = [...names()];
+  result.previous.click();
+  assert.equal(visible().length, 9);
+  result.next.click();
+  assert.equal(visible().length, 9);
+  assert.equal(result.previous.disabled, false);
+  assert.equal(result.pageNumbers.children[1].attributes["aria-current"], "page");
+  allNames.push(...names());
+  result.next.click();
+  assert.equal(visible().length, 1);
+  assert.equal(result.next.disabled, true);
+  assert.deepEqual(names(), ["C 柚水光乳霜"]);
+  allNames.push(...names());
+  result.next.click();
+  assert.equal(visible().length, 1);
+  assert.equal(new Set(allNames).size, 19);
+  assert.deepEqual(allNames, result.gallery.children.map((card) => card.children[1].children[0].textContent));
+  result.pageNumbers.children[0].click();
+  assert.equal(visible().length, 9);
+  assert.equal(names()[0], "龍血積雪草修護面膜");
+});
+
+test("small lists hide unnecessary pagination and layout defines three responsive columns", async () => {
+  for (const count of [0, 1, 9]) {
+    const result = await render(Array.from({ length: count }, (_, i) => ({ image: `./assets/images/products/${i}.jpg`, price: i })));
+    assert.equal(result.pagination.hidden, true);
+    assert.equal(result.gallery.children.filter((card) => !card.hidden).length, count);
+  }
+  const css = read("assets/css/products.css");
+  assert.match(css, /grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.product-card\[hidden\]/);
+  assert.match(css, /@media \(max-width: 980px\)/);
+  assert.match(read("products.html"), /aria-label="產品分頁"/);
+  assert.match(read("products.html"), /aria-live="polite"/);
 });

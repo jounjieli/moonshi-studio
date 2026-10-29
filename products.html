@@ -24,7 +24,7 @@
     <meta name="twitter:image:alt" content="Moonshi 沐煦正式品牌 Logo" />
     <link rel="icon" href="./assets/images/logo-reference.png" type="image/png" />
     <link rel="stylesheet" href="./assets/css/styles.css?v=20261004-2" />
-    <link rel="stylesheet" href="./assets/css/products.css?v=20261029-2" />
+    <link rel="stylesheet" href="./assets/css/products.css?v=20261029-3" />
   </head>
   <body data-page="products">
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -51,7 +51,7 @@
       </header>
       <section class="section products-section" aria-labelledby="products-title">
         <div class="container">
-          <div class="products-heading"><h2 id="products-title">產品一覽</h2><p>依售價由低至高排列，多規格以最低售價排序</p></div>
+          <div class="products-heading"><h2 id="products-title">產品一覽</h2><p>每頁 9 個商品，依售價由低至高排列，多規格以最低售價排序</p></div>
           <div class="products-empty" id="products-empty">
             <div class="products-empty-art" aria-hidden="true"><span>Moonshi</span><small>沐煦・日常保養</small></div>
             <div class="products-empty-copy">
@@ -62,6 +62,14 @@
             </div>
           </div>
           <div class="products-gallery" id="products-gallery" hidden></div>
+          <div class="products-pagination" id="products-pagination" hidden>
+            <p id="products-page-status" role="status" aria-live="polite"></p>
+            <nav class="products-page-actions" aria-label="產品分頁">
+              <button class="products-page" id="products-prev" type="button">上一頁</button>
+              <div class="products-page-numbers" id="products-pages"></div>
+              <button class="products-page" id="products-next" type="button">下一頁</button>
+            </nav>
+          </div>
           <noscript><p class="helper-text">如需查看已上架的產品圖片，請開啟瀏覽器的 JavaScript；也可直接透過官方 LINE 詢問。</p></noscript>
         </div>
       </section>
@@ -80,6 +88,6 @@
     </footer>
     <script src="./assets/js/site-config.js?v=20261004-3"></script>
     <script src="./assets/js/site.js?v=20261004-2"></script>
-    <script src="./assets/js/products.js?v=20261029-3"></script>
+    <script src="./assets/js/products.js?v=20261029-4"></script>
   </body>
 </html>

@@ -74,6 +74,47 @@
       gallery.replaceChildren(...cards);
       empty.hidden = true;
       gallery.hidden = false;
+      const pagination = document.getElementById("products-pagination");
+      const pageNumbers = document.getElementById("products-pages");
+      const previous = document.getElementById("products-prev");
+      const next = document.getElementById("products-next");
+      const pageStatus = document.getElementById("products-page-status");
+      if (pagination && pageNumbers && previous && next && pageStatus) {
+        const pageSize = 9;
+        const pageCount = Math.ceil(cards.length / pageSize);
+        const buttons = [];
+        let currentPage = 1;
+
+        function showPage(page, scroll = false) {
+          currentPage = Math.max(1, Math.min(page, pageCount));
+          const start = (currentPage - 1) * pageSize;
+          cards.forEach((card, index) => {
+            card.hidden = index < start || index >= start + pageSize;
+          });
+          buttons.forEach((button, index) => button.setAttribute("aria-current", index + 1 === currentPage ? "page" : "false"));
+          previous.disabled = currentPage === 1;
+          next.disabled = currentPage === pageCount;
+          const end = Math.min(start + pageSize, cards.length);
+          const range = start + 1 === end ? String(end) : `${start + 1}–${end}`;
+          pageStatus.textContent = `第 ${currentPage} / ${pageCount} 頁 · 顯示第 ${range} 個，共 ${cards.length} 個商品`;
+          if (scroll) gallery.scrollIntoView?.({ behavior: "auto", block: "start" });
+        }
+
+        for (let page = 1; page <= pageCount; page += 1) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "products-page";
+          button.textContent = String(page);
+          button.setAttribute("aria-label", `第 ${page} 頁`);
+          button.addEventListener("click", () => showPage(page, true));
+          buttons.push(button);
+        }
+        pageNumbers.replaceChildren(...buttons);
+        previous.addEventListener("click", () => showPage(currentPage - 1, true));
+        next.addEventListener("click", () => showPage(currentPage + 1, true));
+        pagination.hidden = pageCount <= 1;
+        showPage(1);
+      }
     }
   } catch (error) {
     const status = document.getElementById("products-status");
