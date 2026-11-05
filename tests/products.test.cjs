@@ -167,7 +167,7 @@ test("the original ten products retain their supplied prices and volumes", () =>
   ]);
   assert.equal(new Set(products.map(({ image }) => image)).size, 19);
   assert.match(read("products.html"), /依售價由低至高排列，多規格以最低售價排序/);
-  assert.match(read("products.html"), /products\.js\?v=20261029-4/);
+  assert.match(read("products.html"), /products\.js\?v=20261105-1/);
 });
 
 test("nine additional images match the supplied prices, units and variants", () => {
@@ -267,4 +267,76 @@ test("small lists hide unnecessary pagination and layout defines three responsiv
   assert.match(css, /@media \(max-width: 980px\)/);
   assert.match(read("products.html"), /aria-label="產品分頁"/);
   assert.match(read("products.html"), /aria-live="polite"/);
+});
+
+test("only the active page receives image sources and uses small WebP previews", async () => {
+  const data = JSON.parse(read("assets/products/products.json"));
+  const sorted = [...data].sort((a, b) => a.price - b.price);
+  const result = await render(data);
+  const images = result.gallery.children.map((card) => card.children[0].children[0]);
+  assert.equal(images.filter((image) => image.src).length, 9);
+  for (let i = 0; i < images.length; i += 1) {
+    assert.equal(result.gallery.children[i].children[0].href, new URL(sorted[i].image, "https://jounjieli.github.io/moonshi-studio/").href);
+    if (i < 9) {
+      assert.ok(images[i].src.endsWith("-thumb.webp"));
+      assert.equal(images[i].width, 192);
+      assert.equal(images[i].height, 341);
+      assert.equal(images[i].loading, "eager");
+    } else {
+      assert.equal(images[i].src, undefined);
+    }
+  }
+  result.next.click();
+  assert.equal(images.filter((image) => image.src).length, 18);
+  assert.equal(images[18].src, undefined);
+  result.next.click();
+  assert.equal(images.filter((image) => image.src).length, 19);
+  result.previous.click();
+  assert.equal(result.gallery.children.filter((card) => !card.hidden).length, 9);
+});
+
+test("optimized files preserve originals and shrink first-page image payload by over 90 percent", () => {
+  const products = JSON.parse(read("assets/products/products.json"));
+  for (const item of products) {
+    assert.match(item.original, /^\.\/assets\/images\/products\/[^?#]+\.jpg$/);
+    assert.match(item.thumbnail, /-thumb\.webp$/);
+    assert.match(item.image, /\.webp$/);
+    const originalSize = fs.statSync(path.join(root, item.original)).size;
+    for (const file of [item.thumbnail, item.image]) {
+      const bytes = fs.readFileSync(path.join(root, file));
+      assert.equal(bytes.subarray(0, 4).toString(), "RIFF");
+      assert.equal(bytes.subarray(8, 12).toString(), "WEBP");
+      assert.ok(bytes.length < originalSize, file);
+    }
+    assert.equal(item.width, 720);
+    assert.equal(item.height, 1280);
+    assert.equal(item.thumbnailWidth, 192);
+    assert.equal(item.thumbnailHeight, 341);
+  }
+  const firstPage = [...products].sort((a, b) => a.price - b.price).slice(0, 9);
+  const bytes = (key) => firstPage.reduce((sum, item) => sum + fs.statSync(path.join(root, item[key])).size, 0);
+  assert.ok(bytes("thumbnail") < bytes("original") * 0.1);
+});
+
+test("thumbnail sources cannot escape the product image directory", async () => {
+  for (const thumbnail of ["https://example.com/image.webp", "./assets/images/products/../logo.webp"]) {
+    const result = await render([{ image: "./assets/images/products/a.webp", thumbnail, price: 880 }]);
+    assert.equal(result.gallery.hidden, true);
+    assert.match(result.status.textContent, /官方 LINE/);
+  }
+});
+
+test("site icons and footer logos no longer fetch the one-megabyte brand original", () => {
+  for (const file of fs.readdirSync(root).filter((name) => name.endsWith(".html"))) {
+    const html = read(file);
+    assert.match(html, /rel="icon" href="\.\/assets\/images\/favicon-64\.png"/);
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0];
+    if (footer) {
+      assert.ok(footer.includes('src="./assets/images/logo-96.webp"'));
+      assert.doesNotMatch(footer, /logo-reference\.png/);
+    }
+  }
+  assert.ok(fs.statSync(path.join(root, "assets/images/favicon-64.png")).size < 30000);
+  assert.ok(fs.statSync(path.join(root, "assets/images/logo-96.webp")).size < 20000);
+  assert.ok(read("index.html").includes('src="./assets/images/logo-reference.webp"'));
 });

@@ -35,7 +35,7 @@ async function main() {
   <meta name="twitter:description" content="${description}" />
   <meta name="twitter:image" content="${image}" />
   <meta name="twitter:image:alt" content="Moonshi 沐煦正式 Logo 與官方 LINE 品牌 QR Code" />
-  <link rel="icon" href="./assets/images/logo-reference.png" type="image/png" />
+  <link rel="icon" href="./assets/images/favicon-64.png" type="image/png" sizes="64x64" />
   <link rel="stylesheet" href="./assets/css/styles.css?v=20261004-2" />
   <link rel="stylesheet" href="./assets/css/share.css?v=20261004-2" />
 </head>

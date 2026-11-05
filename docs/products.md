@@ -6,6 +6,14 @@
 
 每頁顯示 9 個商品，桌機為三欄九宮格、平板兩欄、手機單欄。卡片顯示完整比例縮圖、名稱與價格；點擊縮圖另開原圖。19 個商品目前分為 9、9、1 三頁，切頁不會打亂價格順序。
 
+## 圖片效能
+
+產品原始 JPG 會保留於 `original`，`image` 指向相同解析度的高品質 WebP，`thumbnail` 則為 192 像素寬的 WebP 縮圖。商品清單只下載當頁的 9 張縮圖，切頁時才設定下一頁圖片網址；點圖才開啟高品質大圖。
+
+新增原始圖片與商品資料後，使用有 Pillow/WebP 支援的 Python 執行 `python scripts/optimize-images.py`。程式會產生 WebP、更新商品圖片欄位，並把容量統計寫入 `output/image-optimization-20261105/metrics.json`。重複執行仍以 `original` 為來源，避免多次有損壓縮。
+
+大圖與縮圖都不裁切。網站小圖示、頁尾 Logo 與首頁 Logo 另有對應尺寸的輕量版本；社群分享封面的原始 PNG 與網址保持不變。
+
 ## 新增產品圖片
 
 1. 將圖片放到 `assets/images/products/`，建議使用容易辨識的英文檔名。可用 JPG、PNG、WebP；保留圖片原始比例，不會裁切。

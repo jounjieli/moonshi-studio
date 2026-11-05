@@ -13,12 +13,19 @@
     }
 
     const imageRoot = new URL("./assets/images/products/", document.baseURI);
-    const cards = [...products].sort((a, b) => a.price - b.price).map((product) => {
-      if (!product || typeof product.image !== "string") throw new Error("Missing product image");
-      const imageUrl = new URL(product.image, document.baseURI);
-      if (imageUrl.origin !== imageRoot.origin || !imageUrl.pathname.startsWith(imageRoot.pathname)) {
+    const cardImages = [];
+    function productImageUrl(path) {
+      const url = new URL(path, document.baseURI);
+      if (url.origin !== imageRoot.origin || !url.pathname.startsWith(imageRoot.pathname)) {
         throw new Error("Product image must be in the product images folder");
       }
+      return url;
+    }
+
+    const cards = [...products].sort((a, b) => a.price - b.price).map((product) => {
+      if (!product || typeof product.image !== "string") throw new Error("Missing product image");
+      const imageUrl = productImageUrl(product.image);
+      const thumbnailUrl = productImageUrl(product.thumbnail || product.image);
       const name = typeof product.name === "string" ? product.name : "";
       const alt = typeof product.alt === "string" && product.alt.trim() ? product.alt : name || "產品介紹圖片";
       const card = document.createElement("figure");
@@ -29,13 +36,15 @@
       link.rel = "noopener noreferrer";
       link.setAttribute("aria-label", `放大檢視：${alt}（另開視窗）`);
       const image = document.createElement("img");
-      image.src = imageUrl.href;
+      cardImages.push({ image, source: thumbnailUrl.href, loaded: false });
       image.alt = alt;
       image.loading = "lazy";
       image.decoding = "async";
-      if (Number.isSafeInteger(product.width) && product.width > 0 && Number.isSafeInteger(product.height) && product.height > 0) {
-        image.width = product.width;
-        image.height = product.height;
+      const width = product.thumbnailWidth || product.width;
+      const height = product.thumbnailHeight || product.height;
+      if (Number.isSafeInteger(width) && width > 0 && Number.isSafeInteger(height) && height > 0) {
+        image.width = width;
+        image.height = height;
       }
       link.append(image);
       card.append(link);
@@ -71,6 +80,16 @@
     });
 
     if (cards.length) {
+      function loadImage(index) {
+        const item = cardImages[index];
+        if (!item.loaded) {
+          item.image.loading = "eager";
+          item.image.fetchPriority = index === 0 ? "high" : "auto";
+          item.image.src = item.source;
+          item.loaded = true;
+        }
+      }
+
       gallery.replaceChildren(...cards);
       empty.hidden = true;
       gallery.hidden = false;
@@ -90,6 +109,7 @@
           const start = (currentPage - 1) * pageSize;
           cards.forEach((card, index) => {
             card.hidden = index < start || index >= start + pageSize;
+            if (!card.hidden) loadImage(index);
           });
           buttons.forEach((button, index) => button.setAttribute("aria-current", index + 1 === currentPage ? "page" : "false"));
           previous.disabled = currentPage === 1;
@@ -114,6 +134,8 @@
         next.addEventListener("click", () => showPage(currentPage + 1, true));
         pagination.hidden = pageCount <= 1;
         showPage(1);
+      } else {
+        cards.forEach((card, index) => loadImage(index));
       }
     }
   } catch (error) {
