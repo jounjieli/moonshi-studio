@@ -332,11 +332,16 @@ test("site icons and footer logos no longer fetch the one-megabyte brand origina
     assert.match(html, /rel="icon" href="\.\/assets\/images\/favicon-64\.png"/);
     const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0];
     if (footer) {
-      assert.ok(footer.includes('src="./assets/images/logo-96.webp"'));
+      assert.ok(footer.includes('src="./assets/images/logo-96.webp?v=20261105-2"'));
       assert.doesNotMatch(footer, /logo-reference\.png/);
     }
   }
   assert.ok(fs.statSync(path.join(root, "assets/images/favicon-64.png")).size < 30000);
   assert.ok(fs.statSync(path.join(root, "assets/images/logo-96.webp")).size < 20000);
-  assert.ok(read("index.html").includes('src="./assets/images/logo-reference.webp"'));
+  assert.ok(read("index.html").includes('src="./assets/images/logo-reference.webp?v=20261105-2"'));
+  for (const file of ["assets/images/logo-96.webp", "assets/images/logo-reference.webp"]) {
+    const bytes = fs.readFileSync(path.join(root, file));
+    assert.equal(bytes.subarray(12, 16).toString(), "VP8X");
+    assert.ok(bytes[20] & 0x10, `${file} preserves the transparent background`);
+  }
 });

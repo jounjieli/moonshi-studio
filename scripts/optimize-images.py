@@ -11,7 +11,8 @@ MANIFEST = ROOT / "assets/products/products.json"
 
 def webp(source, destination, width=None, quality=88):
     with Image.open(source) as opened:
-        image = ImageOps.exif_transpose(opened).convert("RGB")
+        image = ImageOps.exif_transpose(opened)
+        image = image.convert("RGBA" if "A" in image.getbands() or "transparency" in image.info else "RGB")
         if width:
             image.thumbnail((width, 10000), Image.Resampling.LANCZOS)
         image.save(destination, "WEBP", quality=quality, method=6)
